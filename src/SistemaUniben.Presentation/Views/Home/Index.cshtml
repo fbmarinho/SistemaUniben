@@ -1,31 +1,89 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Principal";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<ol class="breadcrumb">
+	<li class="active">Principal</li>
+</ol>
+
+
+<div class="container" style="margin-top:20px;">
+
+    
+	<div class="row">
+		<div class="widget widget-gray">
+			<!-- TYPE PANEL -->
+			<div class="widget-head">
+				<!-- HEAD PANEL -->
+				<h4 class="heading"><i class="fa fa-archive"></i>  Buscar cliente</h4>
+			</div><!-- /HEAD PANEL -->
+
+			<div class="widget-body" id="widget-body2">
+				<!-- CONTENT PANEL -->
+
+				<form>
+					<div class="col-lg-8">
+						<div class="form-group">                          
+							<input type="text" class="form-control" id="busca" placeholder="Nome do cliente">
+						</div>
+					</div>
+					<div class="col-lg-2">
+						<div class="form-group">                            
+							<select class="form-control" id="filtro">
+								<option value="-1">Filtra busca por</option>
+								<option value="nome">Nome</option>
+								<option value="cpf">CPF</option>                               
+							</select>
+						</div>
+					</div>
+
+					<div class="col-lg-2">
+						<div class="form-group">                           
+							<button type="button" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Buscar cliente</button>
+						</div>
+					</div>
+
+				</form>
+
+				<span class="clear"></span>
+				<div id="grid"></div>
+               
+			</div><!-- /CONTENT PANEL -->
+
+			<div class="widget-footer">
+				<!-- FOOTER PANEL-->
+				<a href="#" class="fa fa-minus-circle fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-MINUS-CIRCLE"><i></i></a>
+				<a href="#" class="fa fa-pencil fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-PENCIL"><i></i></a>
+				<a href="#" class="fa fa-search fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-SEARCH"><i></i></a>
+				<a href="#" class="fa fa-plus-circle fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-PLUS-CIRCLE"><i></i></a>
+				<a href="#" id="toggle2" class="fa fa-chevron-up fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-PLUS-CIRCLE"><i></i></a>
+			</div><!-- /FOOTER PANEL-->
+
+		</div> <!-- /TYPE PANEL -->
+	</div>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+<!-- Como a navegação recarrega a pagina esse script tem que ser usada em cada view -->
+@section Scripts {
+	<script type="text/javascript">
+
+		$("#filtro").on("change", function () {
+            
+			if($(this).val() == 'nome'){
+				$("#busca").unmask();
+			} else {
+				$("#busca").mask("999.999.999-99");
+            
+			}
+		});
+
+		$('.nav-pills li:eq(0) a').tab('show');
+
+
+
+
+	</script>
+}
