@@ -8,7 +8,7 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 
 		public ClienteConfiguration()
 		{
-			ToTable("CLientes");
+			ToTable("Clientes");
 			HasKey(p => p.ClienteId);
 			Property(p => p.Nome).HasMaxLength(200);
 			Property(p => p.Sobrenome).HasMaxLength(200);
