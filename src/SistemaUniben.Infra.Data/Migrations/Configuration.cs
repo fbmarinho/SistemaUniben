@@ -5,14 +5,14 @@ namespace SistemaUniben.Infra.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SistemaUniben.Infra.Data.Context.SistemUnibenContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SistemaUniben.Infra.Data.Context.SistemaUnibenContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(SistemaUniben.Infra.Data.Context.SistemUnibenContext context)
+        protected override void Seed(SistemaUniben.Infra.Data.Context.SistemaUnibenContext context)
         {
             //  This method will be called after migrating to the latest version.
 

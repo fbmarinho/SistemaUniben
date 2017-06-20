@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{36843CFD-8F22-45AA-B4F7-EB151FD983AC}</ProjectGuid>
+    <ProjectGuid>{08BF196F-A039-4FB9-894F-633533D493B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SistemaUniben.Infra.CrossCutting</RootNamespace>
-    <AssemblyName>SistemaUniben.Infra.CrossCutting</AssemblyName>
+    <RootNamespace>SistemaUniben.Infra.CrossCutting.IoC</RootNamespace>
+    <AssemblyName>SistemaUniben.Infra.CrossCutting.IoC</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,10 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Container.cs" />
+    <Compile Include="NinjectModulo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaUniben.Application\SistemaUniben.Application.csproj">
+      <Project>{97C1E5E0-3661-4549-9C96-6B261CF88DF2}</Project>
+      <Name>SistemaUniben.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemaUniben.Domain\SistemaUniben.Domain.csproj">
+      <Project>{72CC4D69-67DA-4353-8960-77AC4FD102AB}</Project>
+      <Name>SistemaUniben.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemaUniben.Infra.Data\SistemaUniben.Infra.Data.csproj">
+      <Project>{499c82ae-2e23-4d03-99aa-b19ed6ca7c8c}</Project>
+      <Name>SistemaUniben.Infra.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

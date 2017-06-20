@@ -7,9 +7,9 @@ using SistemaUniben.Infra.Data.EntityConfig;
 
 namespace SistemaUniben.Infra.Data.Context
 {
-	public class SistemUnibenContext : DbContext
+	public class SistemaUnibenContext : DbContext
 	{
-		public SistemUnibenContext()
+		public SistemaUnibenContext()
 			:base("SistemaUnibenContext")
 		{
 			
@@ -56,5 +56,6 @@ namespace SistemaUniben.Infra.Data.Context
 			return base.SaveChanges();
 		}
 
+		//public System.Data.Entity.DbSet<SistemaUniben.Application.ViewModels.ClienteViewModel> ClienteViewModels { get; set; }
 	}
 }

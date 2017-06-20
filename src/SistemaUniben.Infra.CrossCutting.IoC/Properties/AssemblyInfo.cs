@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SistemaUniben.Infra.CrossCutting")]
+[assembly: AssemblyTitle("SistemaUniben.Infra.CrossCutting.IoC")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SistemaUniben.Infra.CrossCutting")]
+[assembly: AssemblyProduct("SistemaUniben.Infra.CrossCutting.IoC")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("36843cfd-8f22-45aa-b4f7-eb151fd983ac")]
+[assembly: Guid("08bf196f-a039-4fb9-894f-633533d493b5")]
 
 // Version information for an assembly consists of the following four values:
 //
