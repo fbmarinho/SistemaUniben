@@ -22,6 +22,7 @@ namespace SistemaUniben.Infra.Data.Repositories
 		public void Add(TEntity obj)
 		{
 			DbSet.Add(obj);
+			Context.SaveChanges();
 		}
 
 		public TEntity GetById(int id)

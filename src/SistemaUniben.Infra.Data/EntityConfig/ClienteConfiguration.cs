@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using SistemaUniben.Domain.Entities;
 
 namespace SistemaUniben.Infra.Data.EntityConfig
@@ -10,6 +11,7 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 		{
 			ToTable("Clientes");
 			HasKey(p => p.ClienteId);
+			Property(p => p.ClienteId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 			Property(p => p.Nome).HasMaxLength(200);
 			Property(p => p.Sobrenome).HasMaxLength(200);
 		}

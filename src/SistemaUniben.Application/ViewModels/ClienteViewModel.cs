@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SistemaUniben.Application.ViewModels
 {
 	public class ClienteViewModel
 	{
 		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ClienteId { get; set; }
 
 		[Required(ErrorMessage = "Preencha o campo")]
