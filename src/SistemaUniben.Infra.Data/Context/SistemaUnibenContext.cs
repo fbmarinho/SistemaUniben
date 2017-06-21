@@ -27,6 +27,7 @@ namespace SistemaUniben.Infra.Data.Context
 
 			//configuração de cada tabela
 			modelBuilder.Configurations.Add(new ClienteConfiguration());
+			modelBuilder.Configurations.Add(new OperadoraConfiguration());
 
 
 			//configuração das tabelas padrão
@@ -55,7 +56,5 @@ namespace SistemaUniben.Infra.Data.Context
 			}
 			return base.SaveChanges();
 		}
-
-		//public System.Data.Entity.DbSet<SistemaUniben.Application.ViewModels.ClienteViewModel> ClienteViewModels { get; set; }
 	}
 }

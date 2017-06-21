@@ -3,87 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SistemaUniben.Application.Interfaces;
+using SistemaUniben.Application.ViewModels;
 
 namespace SistemaUniben.Presentation.Controllers
 {
     public class OperadoraController : Controller
     {
-        // GET: Operadora
+		private readonly IOperadoraAppService _operadoraAppService;
+
+	    public OperadoraController(IOperadoraAppService operadoraAppService)
+	    {
+		    _operadoraAppService = operadoraAppService;
+	    }
+
         public ActionResult Index()
         {
-            return View();
+            return View(_operadoraAppService.ObterTodos());
         }
 
-        // GET: Operadora/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+	    // GET: Operadora/Cadastro
+	    public ActionResult Cadastro()
+	    {
+		    return View();
+	    }
 
-        // GET: Operadora/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+	    // POST: Operadora/Cadastro
+		[HttpPost]
+	    public ActionResult Cadastro(OperadoraViewModel obj)
+	    {
+			if (ModelState.IsValid)
+		    {
+			    _operadoraAppService.Adicionar(obj);
+			    return RedirectToAction("Index");
+		    }
+		    return View(obj);
+		}
 
-        // POST: Operadora/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Operadora/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Operadora/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Operadora/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Operadora/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
+	}
 }

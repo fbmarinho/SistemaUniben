@@ -52,10 +52,12 @@
   <ItemGroup>
     <Compile Include="Context\SistemaUnibenContext.cs" />
     <Compile Include="EntityConfig\ClienteConfiguration.cs" />
+    <Compile Include="EntityConfig\OperadoraConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />
+    <Compile Include="Repositories\OperadoraRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ContextManager\" />
