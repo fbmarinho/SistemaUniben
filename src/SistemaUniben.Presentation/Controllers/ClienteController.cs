@@ -62,7 +62,7 @@ namespace SistemaUniben.Presentation.Controllers
         public ActionResult Edit(int id, ClienteViewModel obj)
         {
 			if (ModelState.IsValid)
-	        {
+			{
 		        _clienteAppService.Atualizar(obj);
 		        return RedirectToAction("Index");
 	        }
@@ -80,7 +80,8 @@ namespace SistemaUniben.Presentation.Controllers
         [HttpPost]
         public ActionResult Delete(int id, ClienteViewModel obj)
         {
-           _clienteAppService.Remover(_clienteAppService.ObterPorId(id));
+			_clienteAppService.Remover(_clienteAppService.ObterPorId(id));
+
 	        return RedirectToAction("Index");
         }
     }

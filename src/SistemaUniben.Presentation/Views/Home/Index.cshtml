@@ -64,26 +64,3 @@
 	</div>
 
 </div>
-
-
-<!-- Como a navegação recarrega a pagina esse script tem que ser usada em cada view -->
-@section Scripts {
-	<script type="text/javascript">
-
-		$("#filtro").on("change", function () {
-            
-			if($(this).val() == 'nome'){
-				$("#busca").unmask();
-			} else {
-				$("#busca").mask("999.999.999-99");
-            
-			}
-		});
-
-		$('.nav-pills li:eq(0) a').tab('show');
-
-
-
-
-	</script>
-}

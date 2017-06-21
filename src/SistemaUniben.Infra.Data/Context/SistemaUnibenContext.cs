@@ -49,7 +49,7 @@ namespace SistemaUniben.Infra.Data.Context
 
 				if (entry.State == EntityState.Modified)
 				{
-					entry.Property("DataCadastro").CurrentValue = false;
+					entry.Property("DataCadastro").IsModified = false;
 				}
 
 			}

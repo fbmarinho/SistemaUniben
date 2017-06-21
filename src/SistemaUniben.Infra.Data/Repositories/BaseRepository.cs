@@ -48,6 +48,7 @@ namespace SistemaUniben.Infra.Data.Repositories
 		public void Remove(TEntity obj)
 		{
 			DbSet.Remove(obj);
+			Context.SaveChanges();
 		}
 
 		public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
