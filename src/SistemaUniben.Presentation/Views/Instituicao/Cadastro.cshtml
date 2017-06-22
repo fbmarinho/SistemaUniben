@@ -1,0 +1,229 @@
+﻿@model SistemaUniben.Application.ViewModels.InstituicaoViewModel
+
+@{
+	ViewBag.Title = "Cadastro de Instituição";
+}
+
+
+<ol class="breadcrumb">
+	<li><a href="/Home/Index">Principal</a></li>
+	<li class="active">Cadastro Instituição</li>
+</ol>
+
+
+
+<div class="container" style="margin-top:20px;">
+
+	<div class="row">
+		<div class="widget widget-gray">
+			<!-- TYPE PANEL -->
+			<div class="widget-head">
+				<!-- HEAD PANEL -->
+				<h4 class="heading"><i class="fa fa-archive"></i> Cadastro de Instituição</h4>
+			</div><!-- /HEAD PANEL -->
+
+			<div class="widget-body" id="widget-body1">
+				<!-- CONTENT PANEL -->
+
+				<h4>Dados cadastrais</h4>
+				<hr class="style4" />
+
+				@using (Html.BeginForm())
+				{
+					@Html.AntiForgeryToken()
+
+					<div class="col-md-12">
+						@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+					</div>
+
+					<div class="form-group col-md-3">
+						@*<label for="cnpj">CNPJ</label>
+						<input type="text" class="form-control cnpj" id="cnpj" maxlength="14" placeholder="CNPJ">*@
+						@Html.LabelFor(model => model.CNPJ, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => model.CNPJ, "", new { @class = "text-danger" })
+					</div>
+
+					<div class="form-group col-md-4">
+						@*<label for="nome">Nome</label>
+						<input type="text" class="form-control" id="nome" placeholder="Nome">*@
+						@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Nome, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-3">
+						@*<label for="fantasia">Nome Fantasia</label>
+						<input type="text" class="form-control" id="fantasia" placeholder="Nome Fantasia">*@
+						@Html.LabelFor(model => model.NomeFantasia, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.NomeFantasia, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.NomeFantasia, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-2">
+						@*<label for="situacao">Situação</label>
+						<input type="text" class="form-control" id="situacao" placeholder="Situação">*@
+						@Html.LabelFor(model => model.Situacao, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Situacao, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Situacao, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-3">
+						@*<label for="telefone">Telefone</label>
+						<input type="text" class="form-control" id="telefone" maxlength="14" placeholder="Telefone">*@
+						@Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Telefone, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Telefone, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-4">
+						@*<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Email">*@
+						@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-3">
+						@*<label for="abertura">Abertura</label>
+						<input type="text" class="form-control" id="abertura" placeholder="Abertura">*@
+						@Html.LabelFor(model => model.DataAbertura, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.DataAbertura, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.DataAbertura, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-2">
+						@*<label for="natureza_juridica">Natureza jurídica</label>
+						<input type="text" class="form-control" id="natureza_juridica" placeholder="Natureza jurídica">*@
+						@Html.LabelFor(model => model.NaturezaJuridica, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.NaturezaJuridica, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.NaturezaJuridica, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-10">
+						@*<label for="atividade_principal">Atividade principal</label>
+						<input type="text" class="form-control" id="atividade_principal" placeholder="Atividade principal">*@
+						@Html.LabelFor(model => model.Atividade, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Atividade, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Atividade, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-2">
+						@*<label for="code">Código</label>
+						<input type="text" class="form-control" id="code" placeholder="Code">*@
+						@Html.LabelFor(model => model.Codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Codigo, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Codigo, "", new {@class = "text-danger"})
+					</div>
+
+
+					<h4>Endereço</h4>
+					<hr class="style4">
+
+					<div class="form-group col-md-3">
+						@*<label for="cep">CEP</label>
+						<input type="text" class="form-control cep" id="cep" placeholder="CEP">*@
+						@Html.LabelFor(model => model.CEP, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.CEP, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.CEP, "", new {@class = "text-danger"})
+					</div>
+
+
+					<div class="form-group col-md-6">
+						@*<label for="rua">Rua</label>
+						<input type="text" class="form-control" id="rua" placeholder="Rua">*@
+						@Html.LabelFor(model => model.Logradouro, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Logradouro, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Logradouro, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-3">
+						@*<label for="numero">Número</label>
+						<input type="text" class="form-control" id="numero" placeholder="Número">*@
+						@Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Numero, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Numero, "", new {@class = "text-danger"})
+					</div>
+
+					<div class="form-group col-md-3">
+						@*<label for="complemento">Complemento</label>
+						<input type="text" class="form-control" id="complemento" placeholder="Complemento">*@
+						@Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Complemento, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Complemento, "", new {@class = "text-danger"})
+					</div>
+					<div class="form-group col-md-3">
+						@*<label for="bairro">Bairro</label>
+						<input type="text" class="form-control" id="bairro" placeholder="Bairro">*@
+						@Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Bairro, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Bairro, "", new {@class = "text-danger"})
+					</div>
+					<div class="form-group col-md-3">
+						@*<label for="cidade">Cidade</label>
+						<input type="text" class="form-control" id="cidade" placeholder="Cidade">*@
+						@Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Cidade, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Cidade, "", new {@class = "text-danger"})
+					</div>
+					<div class="form-group col-md-3">
+						@*<label for="estado">Estado</label>
+						<select class="custom-select form-control decorated " id="estado">
+							<option selected>Escolha uma opção</option>
+							<option value="AC">Acre</option>
+							<option value="AL">Alagoas</option>
+							<option value="AM">Amazonas</option>
+							<option value="AP">Amapá</option>
+							<option value="BA">Bahia</option>
+							<option value="CE">Ceará</option>
+							<option value="DF">Distrito Federal</option>
+							<option value="ES">Espírito Santo</option>
+							<option value="GO">Goiás</option>
+							<option value="MA">Maranhão</option>
+							<option value="MT">Mato Grosso</option>
+							<option value="MS">Mato Grosso do Sul</option>
+							<option value="MG">Minas Gerais</option>
+							<option value="PA">Pará</option>
+							<option value="PB">Paraíba</option>
+							<option value="PR">Paraná</option>
+							<option value="PE">Pernambuco</option>
+							<option value="PI">Piauí</option>
+							<option value="RJ">Rio de Janeiro</option>
+							<option value="RN">Rio Grande do Norte</option>
+							<option value="RO">Rondônia</option>
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="RR">Roraima</option>
+							<option value="SC">Santa Catarina</option>
+							<option value="SE">Sergipe</option>
+							<option value="SP">São Paulo</option>
+							<option value="TO">Tocantins</option>
+						</select>*@
+						@Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+						@Html.EditorFor(model => model.Estado, new {htmlAttributes = new {@class = "form-control"}})
+						@Html.ValidationMessageFor(model => model.Estado, "", new {@class = "text-danger"})
+					</div>
+
+					<hr class="style4">
+
+					<div class="col-md-3 col-md-offset-9">
+						@*<button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#modal">
+							Salvar cadastro
+						</button>*@
+						<input type="submit" value="Salvar Cadastro" class="btn btn-primary btn-sm" />
+					</div>
+
+				}
+
+				<span class="clear"></span>
+
+			</div><!-- /CONTENT PANEL -->
+
+			<div class="widget-footer">
+				<!-- FOOTER PANEL-->
+				<a href="#" id="toggle1" class="fa fa-chevron-up fa-1x" title=""><i></i></a>
+			</div><!-- /FOOTER PANEL-->
+
+		</div> <!-- /TYPE PANEL -->
+
+	</div>
+</div>

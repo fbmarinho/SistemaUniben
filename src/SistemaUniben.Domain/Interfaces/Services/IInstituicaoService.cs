@@ -3,8 +3,8 @@ using SistemaUniben.Domain.Entities;
 
 namespace SistemaUniben.Domain.Interfaces.Services
 {
-	public interface IOperadoraService : IBaseService<Operadora>
+	public interface IInstituicaoService : IBaseService<Instituicao>
 	{
-		IEnumerable<Operadora> ObterPorCNPJ(string cnpj);
+			IEnumerable<Instituicao> ObterPorCNPJ(string cnpj);
 	}
 }

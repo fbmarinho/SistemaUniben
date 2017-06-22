@@ -16,6 +16,9 @@ namespace SistemaUniben.Infra.Data.Context
 		}
 
 		public DbSet<Cliente> Clientes { get; set; }
+		public DbSet<Operadora> Operadoras { get; set; }
+		public DbSet<Instituicao> Instituicoes { get; set; }
+
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -28,6 +31,7 @@ namespace SistemaUniben.Infra.Data.Context
 			//configuração de cada tabela
 			modelBuilder.Configurations.Add(new ClienteConfiguration());
 			modelBuilder.Configurations.Add(new OperadoraConfiguration());
+			modelBuilder.Configurations.Add(new InstituicaoConfiguration());
 
 
 			//configuração das tabelas padrão

@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstituicaoController.cs" />
     <Compile Include="Controllers\OperadoraController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +211,8 @@
     <Content Include="Views\Cliente\Delete.cshtml" />
     <Content Include="Views\Operadora\Index.cshtml" />
     <Content Include="Views\Operadora\Cadastro.cshtml" />
+    <Content Include="Views\Instituicao\Index.cshtml" />
+    <Content Include="Views\Instituicao\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

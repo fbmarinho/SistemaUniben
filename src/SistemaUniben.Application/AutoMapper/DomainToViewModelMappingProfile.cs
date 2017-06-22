@@ -10,6 +10,7 @@ namespace SistemaUniben.Application.AutoMapper
 		{
 			CreateMap<Cliente, ClienteViewModel>();
 			CreateMap<Operadora, OperadoraViewModel>();
+			CreateMap<Instituicao, InstituicaoViewModel>();
 		}
 
 

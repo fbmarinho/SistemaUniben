@@ -51,7 +51,7 @@ namespace SistemaUniben.Domain.Services
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<Cliente> ObterPorCNPJ(string cnpj)
+		public IEnumerable<Operadora> ObterPorCNPJ(string cnpj)
 		{
 			throw new NotImplementedException();
 		}
