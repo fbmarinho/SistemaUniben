@@ -12,5 +12,6 @@ namespace SistemaUniben.Domain.Interfaces.Repositories
 		void Update(TEntity obj);
 		void Remove(TEntity obj);
 		IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+		void SaveChanges();
 	}
 }

@@ -8,7 +8,7 @@ using SistemaUniben.Domain.Interfaces.Services;
 
 namespace SistemaUniben.Application
 {
-	public class ClienteAppService : IClienteAppService
+	public class ClienteAppService : AppServiceBase, IClienteAppService
 	{
 
 		private readonly IClienteService _clienteService;
@@ -22,7 +22,11 @@ namespace SistemaUniben.Application
 		{
 			var cliente = Mapper.Map<ClienteViewModel, Cliente>(obj);
 
-			_clienteService.Adicionar(cliente);
+			BeginTransaction();
+
+				_clienteService.Adicionar(cliente);
+
+			Commit();
 		}
 
 		public ClienteViewModel ObterPorId(int id)

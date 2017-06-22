@@ -4,7 +4,10 @@ using SistemaUniben.Application.Interfaces;
 using SistemaUniben.Domain.Interfaces.Repositories;
 using SistemaUniben.Domain.Interfaces.Services;
 using SistemaUniben.Domain.Services;
+using SistemaUniben.Infra.Data.Context;
+using SistemaUniben.Infra.Data.Interfaces;
 using SistemaUniben.Infra.Data.Repositories;
+using SistemaUniben.Infra.Data.UoW;
 
 namespace SistemaUniben.Infra.CrossCutting.IoC
 {
@@ -12,6 +15,10 @@ namespace SistemaUniben.Infra.CrossCutting.IoC
 	{
 		public override void Load()
 		{
+			// Data Config
+			Bind<IContextManager>().To<ContextManager>();
+			Bind<IUnitofWork>().To<UnitOfWork>();
+
 			// App
 			Bind<IClienteAppService>().To<ClienteAppService>();
 			Bind<IOperadoraAppService>().To<OperadoraAppService>();

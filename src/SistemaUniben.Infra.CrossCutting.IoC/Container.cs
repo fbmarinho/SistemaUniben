@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using CommonServiceLocator.NinjectAdapter.Unofficial;
+using Microsoft.Practices.ServiceLocation;
+using Ninject;
 
 namespace SistemaUniben.Infra.CrossCutting.IoC
 {
@@ -6,7 +8,7 @@ namespace SistemaUniben.Infra.CrossCutting.IoC
 	{
 		public Container()
 		{
-			
+			ServiceLocator.SetLocatorProvider(() => new NinjectServiceLocator(GetModule()));
 		}
 
 		public StandardKernel GetModule()

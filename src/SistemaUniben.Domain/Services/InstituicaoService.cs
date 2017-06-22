@@ -19,7 +19,8 @@ namespace SistemaUniben.Domain.Services
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			_instituicaoRepository.Dispose();
+			GC.SuppressFinalize(this);
 		}
 
 		public void Adicionar(Instituicao obj)

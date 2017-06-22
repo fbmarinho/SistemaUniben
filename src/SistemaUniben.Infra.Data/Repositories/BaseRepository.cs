@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.Practices.ServiceLocation;
 using SistemaUniben.Domain.Interfaces.Repositories;
 using SistemaUniben.Infra.Data.Context;
+using SistemaUniben.Infra.Data.Interfaces;
 
 namespace SistemaUniben.Infra.Data.Repositories
 {
 	public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
 	{
+		private readonly ContextManager _contextManager = ServiceLocator.Current.GetInstance<IContextManager>() as ContextManager;
 		protected readonly SistemaUnibenContext Context;
 		protected DbSet<TEntity> DbSet;
 
 		public BaseRepository()
 		{
-			Context = new SistemaUnibenContext();
+			Context = _contextManager.GetContext();
 			DbSet = Context.Set<TEntity>();
 		}
 
 		public void Add(TEntity obj)
 		{
 			DbSet.Add(obj);
-			Context.SaveChanges();
 		}
 
 		public TEntity GetById(int id)
@@ -41,19 +43,21 @@ namespace SistemaUniben.Infra.Data.Repositories
 			var entry = Context.Entry(obj);
 			DbSet.Attach(obj);
 			entry.State = EntityState.Modified;
-
-			Context.SaveChanges();
 		}
 
 		public void Remove(TEntity obj)
 		{
 			DbSet.Remove(obj);
-			Context.SaveChanges();
 		}
 
 		public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
 		{
 			return DbSet.Where(predicate);
+		}
+
+		public virtual void SaveChanges()
+		{
+			Context.SaveChanges();
 		}
 
 		public void Dispose()
