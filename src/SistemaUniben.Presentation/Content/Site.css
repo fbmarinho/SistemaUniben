@@ -60,7 +60,7 @@
 }
 
 .pointer {
-    cursor;
+    cursor: pointer;
 }
 
 .unselectable {
@@ -912,8 +912,6 @@ textarea:focus, input:focus, select:focus, .uneditable-input:focus {
     display: block;
     margin-top: 10px;
 }
-
-
 
 .grad {
     background: -webkit-radial-gradient(circle, #fff, #c9d9e4); /* Safari */

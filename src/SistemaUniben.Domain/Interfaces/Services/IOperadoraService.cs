@@ -6,5 +6,6 @@ namespace SistemaUniben.Domain.Interfaces.Services
 	public interface IOperadoraService : IBaseService<Operadora>
 	{
 		IEnumerable<Operadora> ObterPorCNPJ(string cnpj);
+
 	}
 }
