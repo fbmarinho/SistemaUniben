@@ -16,6 +16,7 @@ namespace SistemaUniben.Infra.Data.Context
 		}
 
 		public DbSet<Cliente> Clientes { get; set; }
+		public DbSet<Endereco> Enderecos { get; set; }
 		public DbSet<Operadora> Operadoras { get; set; }
 		public DbSet<Instituicao> Instituicoes { get; set; }
 
@@ -23,18 +24,19 @@ namespace SistemaUniben.Infra.Data.Context
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 
-			//configuração do framework
+			// Configuração do framework
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 			modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
-			//configuração de cada tabela
+			// Configuração de cada tabela
+			modelBuilder.Configurations.Add(new EnderecoConfiguration());
 			modelBuilder.Configurations.Add(new ClienteConfiguration());
 			modelBuilder.Configurations.Add(new OperadoraConfiguration());
 			modelBuilder.Configurations.Add(new InstituicaoConfiguration());
 
 
-			//configuração das tabelas padrão
+			// Configuração das tabelas padrão
 			modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());
 			modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
 			modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
