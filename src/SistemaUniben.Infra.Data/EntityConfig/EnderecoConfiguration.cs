@@ -26,9 +26,6 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 			Property(e => e.Complemento)
 				.HasMaxLength(300);
 
-			// Relacionamentos
-			
-
 		}
 	}
 }

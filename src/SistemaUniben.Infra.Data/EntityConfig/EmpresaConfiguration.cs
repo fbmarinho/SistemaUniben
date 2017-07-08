@@ -1,15 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
+﻿using System.Data.Entity.ModelConfiguration;
 using SistemaUniben.Domain.Entities;
 
 namespace SistemaUniben.Infra.Data.EntityConfig
 {
-	public class InstituicaoConfiguration : EntityTypeConfiguration<Instituicao>
+	public class EmpresaConfiguration : EntityTypeConfiguration<Empresa>
 	{
-		public InstituicaoConfiguration()
+		public EmpresaConfiguration()
 		{
-			ToTable("Instituicoes");
-			HasKey(p => p.InstituicaoId);
+			ToTable("Empresas");
+			HasKey(p => p.EmpresaId);
 
 			Property(p => p.CNPJ).HasMaxLength(15);
 			Property(p => p.Nome).HasMaxLength(200);
@@ -27,11 +26,10 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 				.WithMany()
 				.Map(me =>
 				{
-					me.MapLeftKey("InstituicaoId");
+					me.MapLeftKey("EmpresaId");
 					me.MapRightKey("OwnerId");
-					me.ToTable("InstituicaoEndereco");
+					me.ToTable("EmpresaEndereco");
 				});
 		}
-		
 	}
 }

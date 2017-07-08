@@ -58,6 +58,7 @@
     <Compile Include="Context\ContextManager.cs" />
     <Compile Include="Context\SistemaUnibenContext.cs" />
     <Compile Include="EntityConfig\ClienteConfiguration.cs" />
+    <Compile Include="EntityConfig\EmpresaConfiguration.cs" />
     <Compile Include="EntityConfig\EnderecoConfiguration.cs" />
     <Compile Include="EntityConfig\InstituicaoConfiguration.cs" />
     <Compile Include="EntityConfig\OperadoraConfiguration.cs" />

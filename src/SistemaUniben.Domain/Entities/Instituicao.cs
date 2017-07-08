@@ -1,33 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using SistemaUniben.Domain.Entities.Abstract;
 
 namespace SistemaUniben.Domain.Entities
 {
-	public class Instituicao
+	public class Instituicao : PessoaJuridica
 	{
-		public int InstituicaoId { get; set; }
-		public string CNPJ { get; set; }
-		public string Nome { get; set; }
-		public string NomeFantasia { get; set; }
-		public string Situacao { get; set; }
-		public string Telefone { get; set; }
-		public string Email { get; set; }
-		public DateTime? DataAbertura { get; set; }
-		public string NaturezaJuridica { get; set; }
-		public string Atividade { get; set; }
-		public string Codigo { get; set; }
+		public Instituicao()
+		{
+			InstituicaoId = new Guid();
+		}
 
-		//Endereço
-		public string CEP { get; set; }
-		public string Logradouro { get; set; }
-		public string Numero { get; set; }
-		public string Complemento { get; set; }
-		public string Bairro { get; set; }
-		public string Cidade { get; set; }
-		public string Estado { get; set; }
+		public Guid InstituicaoId { get; set; }
 
-		//Interno
-		public bool Ativo { get; set; }
-		public DateTime DataCadastro { get; set; }
-		public DateTime? DataExclusao { get; set; }
 	}
 }

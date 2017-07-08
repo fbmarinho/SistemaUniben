@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\Abstract\PessoaJuridica.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Entities\Instituicao.cs" />
     <Compile Include="Entities\Operadora.cs" />
+    <Compile Include="Entities\Abstract\PessoaFisica.cs" />
     <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\IInstituicaoRepository.cs" />

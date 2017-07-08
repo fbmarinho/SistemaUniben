@@ -20,7 +20,7 @@ namespace SistemaUniben.Domain.Entities
 		public string Cidade { get; set; }
 		public string Estado { get; set; }
 
-		public Guid DonoId { get; set; }
+		public Guid OwnerId { get; set; }
 
 		//Interno
 		public bool Ativo { get; set; }

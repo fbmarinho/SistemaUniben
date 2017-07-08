@@ -11,9 +11,20 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 		{
 			ToTable("Clientes");
 			HasKey(p => p.ClienteId);
-			Property(p => p.ClienteId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
 			Property(p => p.Nome).HasMaxLength(200);
 			Property(p => p.Sobrenome).HasMaxLength(200);
+			Property(p => p.CPF).IsRequired();
+
+			// Relacionamentos Muitos para Muitos
+			HasMany(e => e.Enderecos)
+				.WithMany()
+				.Map(me =>
+				{
+					me.MapLeftKey("ClienteId");
+					me.MapRightKey("OwnerId");
+					me.ToTable("ClienteEndereco");
+				});
 		}
 	}
 }

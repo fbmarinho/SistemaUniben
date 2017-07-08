@@ -1,12 +1,14 @@
 ﻿using System;
+using SistemaUniben.Domain.Entities.Abstract;
 
 namespace SistemaUniben.Domain.Entities
 {
-	public class Cliente
+	public class Cliente : PessoaFisica
 	{
-		public int ClienteId { get; set; }
-		public string Nome { get; set; }
-		public string Sobrenome { get; set; }
-		public DateTime DataCadastro { get; set; }
+		public Cliente()
+		{
+			ClienteId = new Guid();
+		}
+		public Guid ClienteId { get; set; }
 	}
 }
