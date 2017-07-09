@@ -27,7 +27,7 @@ namespace SistemaUniben.Presentation.Controllers
         }
 
         // GET: Cliente/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             return View(_clienteAppService.ObterPorId(id));
         }
@@ -52,14 +52,14 @@ namespace SistemaUniben.Presentation.Controllers
         }
 
         // GET: Cliente/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
 			return View(_clienteAppService.ObterPorId(id));
         }
 
         // POST: Cliente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, ClienteViewModel obj)
+        public ActionResult Edit(Guid id, ClienteViewModel obj)
         {
 			if (ModelState.IsValid)
 			{
@@ -71,14 +71,14 @@ namespace SistemaUniben.Presentation.Controllers
 		}
 
         // GET: Cliente/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
 			return View(_clienteAppService.ObterPorId(id));
         }
 
         // POST: Cliente/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, ClienteViewModel obj)
+        public ActionResult Delete(Guid id, ClienteViewModel obj)
         {
 			_clienteAppService.Remover(_clienteAppService.ObterPorId(id));
 

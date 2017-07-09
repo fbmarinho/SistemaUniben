@@ -9,7 +9,7 @@ namespace SistemaUniben.Application.ViewModels
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int ClienteId { get; set; }
+		public Guid ClienteId { get; set; }
 
 		[Required(ErrorMessage = "Preencha o campo")]
 		[MaxLength(200, ErrorMessage = "Máximo {0} caracteres")]

@@ -8,7 +8,7 @@ namespace SistemaUniben.Application.Interfaces
 	{
 		// CRUD
 		void Adicionar(OperadoraViewModel obj);
-		OperadoraViewModel ObterPorId(int id);
+		OperadoraViewModel ObterPorId(Guid id);
 		IEnumerable<OperadoraViewModel> ObterTodos();
 		void Atualizar(OperadoraViewModel obj);
 		void Remover(OperadoraViewModel obj);

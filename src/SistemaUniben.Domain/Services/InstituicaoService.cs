@@ -28,7 +28,7 @@ namespace SistemaUniben.Domain.Services
 			_instituicaoRepository.Add(obj);
 		}
 
-		public Instituicao ObterPorId(int id)
+		public Instituicao ObterPorId(Guid id)
 		{
 			throw new NotImplementedException();
 		}

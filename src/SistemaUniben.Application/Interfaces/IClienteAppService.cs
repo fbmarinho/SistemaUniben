@@ -8,7 +8,7 @@ namespace SistemaUniben.Application.Interfaces
 	public interface IClienteAppService : IDisposable
 	{
 		void Adicionar(ClienteViewModel obj);
-		ClienteViewModel ObterPorId(int id);
+		ClienteViewModel ObterPorId(Guid id);
 		IEnumerable<ClienteViewModel> ObterTodos();
 		void Atualizar(ClienteViewModel obj);
 		void Remover(ClienteViewModel obj);

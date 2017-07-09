@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using SistemaUniben.Application.Interfaces;
 using SistemaUniben.Application.ViewModels;
@@ -28,7 +29,7 @@ namespace SistemaUniben.Application
 			_operadoraService.Adicionar(operadora);
 		}
 
-		public OperadoraViewModel ObterPorId(int id)
+		public OperadoraViewModel ObterPorId(Guid id)
 		{
 			throw new System.NotImplementedException();
 		}

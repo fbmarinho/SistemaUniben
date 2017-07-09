@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using SistemaUniben.Domain.Entities;
+using SistemaUniben.Infra.Data.EntityConfig.AbstractConfig;
 
 namespace SistemaUniben.Infra.Data.EntityConfig
 {
-	public class ClienteConfiguration : EntityTypeConfiguration<Cliente>
+	public class ClienteConfiguration : PessoaFisicaConfiguration<Cliente>
 	{
 
 		public ClienteConfiguration()
@@ -12,9 +13,6 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 			ToTable("Clientes");
 			HasKey(p => p.ClienteId);
 
-			Property(p => p.Nome).HasMaxLength(200);
-			Property(p => p.Sobrenome).HasMaxLength(200);
-			Property(p => p.CPF).IsRequired();
 
 			// Relacionamentos Muitos para Muitos
 			HasMany(e => e.Enderecos)

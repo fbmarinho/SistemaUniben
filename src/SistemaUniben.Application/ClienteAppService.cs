@@ -29,7 +29,7 @@ namespace SistemaUniben.Application
 			Commit();
 		}
 
-		public ClienteViewModel ObterPorId(int id)
+		public ClienteViewModel ObterPorId(Guid id)
 		{
 			var cliente = _clienteService.ObterPorId(id);
 			return Mapper.Map<Cliente, ClienteViewModel>(cliente);

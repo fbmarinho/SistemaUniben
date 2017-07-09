@@ -26,7 +26,7 @@ namespace SistemaUniben.Domain.Services
 			_operadoraRepository.Add(obj);
 		}
 
-		public Operadora ObterPorId(int id)
+		public Operadora ObterPorId(Guid id)
 		{
 			throw new NotImplementedException();
 		}

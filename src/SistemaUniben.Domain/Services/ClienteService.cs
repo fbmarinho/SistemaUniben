@@ -38,7 +38,7 @@ namespace SistemaUniben.Domain.Services
 			_clienteRepository.Dispose();
 		}
 
-		public Cliente ObterPorId(int id)
+		public Cliente ObterPorId(Guid id)
 		{
 			return _clienteRepository.GetById(id);
 		}

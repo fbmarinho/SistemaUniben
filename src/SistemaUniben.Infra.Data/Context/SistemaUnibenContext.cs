@@ -37,12 +37,16 @@ namespace SistemaUniben.Infra.Data.Context
 			modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
 			// Configuração de cada tabela
-			modelBuilder.Configurations.Add(new EnderecoConfiguration());
-			modelBuilder.Configurations.Add(new EmpresaConfiguration());
+			// PF
 			modelBuilder.Configurations.Add(new ClienteConfiguration());
-			modelBuilder.Configurations.Add(new OperadoraConfiguration());
-			modelBuilder.Configurations.Add(new InstituicaoConfiguration());
 
+			// PJ
+			modelBuilder.Configurations.Add(new EmpresaConfiguration());
+			modelBuilder.Configurations.Add(new InstituicaoConfiguration());
+			modelBuilder.Configurations.Add(new OperadoraConfiguration());
+
+			// Outros
+			modelBuilder.Configurations.Add(new EnderecoConfiguration());
 
 			// Configuração das tabelas padrão
 			//modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());

@@ -7,7 +7,7 @@ namespace SistemaUniben.Domain.Interfaces.Repositories
 	public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
 	{
 		void Add(TEntity obj);
-		TEntity GetById(int id);
+		TEntity GetById(Guid id);
 		IEnumerable<TEntity> GetAll();
 		void Update(TEntity obj);
 		void Remove(TEntity obj);

@@ -27,7 +27,7 @@ namespace SistemaUniben.Infra.Data.Repositories
 			DbSet.Add(obj);
 		}
 
-		public TEntity GetById(int id)
+		public TEntity GetById(Guid id)
 		{
 			return DbSet.Find(id);
 		}

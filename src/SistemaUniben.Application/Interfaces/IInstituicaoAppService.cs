@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SistemaUniben.Application.ViewModels;
 
 namespace SistemaUniben.Application.Interfaces
@@ -7,7 +8,7 @@ namespace SistemaUniben.Application.Interfaces
 	{
 		// CRUD
 		void Adicionar(InstituicaoViewModel obj);
-		InstituicaoViewModel ObterPorId(int id);
+		InstituicaoViewModel ObterPorId(Guid id);
 		IEnumerable<InstituicaoViewModel> ObterTodos();
 		void Atualizar(InstituicaoViewModel obj);
 		void Remover(InstituicaoViewModel obj);
