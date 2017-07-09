@@ -2,7 +2,7 @@
 
 namespace SistemaUniben.Domain.Interfaces.Services
 {
-	public interface IOperadoraService : IBaseService<Operadora>, IPessoaJuridicaService<Operadora>
+	public interface IEmpresaService : IBaseService<Empresa>, IPessoaJuridicaService<Empresa>
 	{
 		// Métodos específicos
 	}

@@ -20,7 +20,8 @@ namespace SistemaUniben.Application
 
 		public void Dispose()
 		{
-			throw new System.NotImplementedException();
+			_operadoraService.Dispose();
+			GC.SuppressFinalize(this);
 		}
 
 		public void Adicionar(OperadoraViewModel obj)
@@ -31,7 +32,8 @@ namespace SistemaUniben.Application
 
 		public OperadoraViewModel ObterPorId(Guid id)
 		{
-			throw new System.NotImplementedException();
+			var objeto = _operadoraService.ObterPorId(id);
+			return Mapper.Map<Operadora, OperadoraViewModel>(objeto);
 		}
 
 		public IEnumerable<OperadoraViewModel> ObterTodos()
@@ -42,17 +44,20 @@ namespace SistemaUniben.Application
 
 		public void Atualizar(OperadoraViewModel obj)
 		{
-			throw new System.NotImplementedException();
+			var objeto = Mapper.Map<OperadoraViewModel, Operadora>(obj);
+			_operadoraService.Atualizar(objeto);
 		}
 
 		public void Remover(OperadoraViewModel obj)
 		{
-			throw new System.NotImplementedException();
+			var objeto = Mapper.Map<OperadoraViewModel, Operadora>(obj);
+			_operadoraService.Remover(objeto);
 		}
 
 		public IEnumerable<OperadoraViewModel> ObterPorCNPJ(string cnpj)
 		{
-			throw new System.NotImplementedException();
+			var objeto = _operadoraService.ObterPorCNPJ(cnpj);
+			return Mapper.Map<IEnumerable<Operadora>, IEnumerable<OperadoraViewModel>>(objeto);
 		}
 	}
 }

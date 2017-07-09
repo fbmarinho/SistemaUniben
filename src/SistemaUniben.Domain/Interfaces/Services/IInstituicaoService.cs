@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using SistemaUniben.Domain.Entities;
+﻿using SistemaUniben.Domain.Entities;
 
 namespace SistemaUniben.Domain.Interfaces.Services
 {
-	public interface IInstituicaoService : IBaseService<Instituicao>
+	public interface IInstituicaoService: IBaseService<Instituicao>, IPessoaJuridicaService<Instituicao>
 	{
-			IEnumerable<Instituicao> ObterPorCNPJ(string cnpj);
+		
 	}
 }

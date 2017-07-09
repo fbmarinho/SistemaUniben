@@ -9,16 +9,21 @@ namespace SistemaUniben.Domain.Services
 {
 	public class OperadoraService : IOperadoraService
 	{
-		protected readonly IOperadoraRepository _operadoraRepository;
+		private readonly IOperadoraRepository _operadoraRepository;
 
 		public OperadoraService(IOperadoraRepository operadoraRepository)
 		{
 			_operadoraRepository = operadoraRepository;
 		}
 
+		public IEnumerable<Operadora> ObterPorCNPJ(string cnpj)
+		{
+			return _operadoraRepository.GetByCNPJ(cnpj);
+		}
+
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			_operadoraRepository.Dispose();
 		}
 
 		public void Adicionar(Operadora obj)
@@ -28,7 +33,7 @@ namespace SistemaUniben.Domain.Services
 
 		public Operadora ObterPorId(Guid id)
 		{
-			throw new NotImplementedException();
+			return _operadoraRepository.GetById(id);
 		}
 
 		public IEnumerable<Operadora> ObterTodos()
@@ -38,22 +43,17 @@ namespace SistemaUniben.Domain.Services
 
 		public void Atualizar(Operadora obj)
 		{
-			throw new NotImplementedException();
+			_operadoraRepository.Update(obj);
 		}
 
 		public void Remover(Operadora obj)
 		{
-			throw new NotImplementedException();
+			_operadoraRepository.Remove(obj);
 		}
 
 		public IEnumerable<Operadora> Buscar(Expression<Func<Operadora, bool>> predicate)
 		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<Operadora> ObterPorCNPJ(string cnpj)
-		{
-			throw new NotImplementedException();
+			return _operadoraRepository.Find(predicate);
 		}
 	}
 }

@@ -20,7 +20,8 @@ namespace SistemaUniben.Application
 
 		public void Dispose()
 		{
-			throw new System.NotImplementedException();
+			_instituicaoService.Dispose();
+			GC.SuppressFinalize(this);
 		}
 
 		public void Adicionar(InstituicaoViewModel obj)
@@ -31,7 +32,8 @@ namespace SistemaUniben.Application
 
 		public InstituicaoViewModel ObterPorId(Guid id)
 		{
-			throw new System.NotImplementedException();
+			var objeto = _instituicaoService.ObterPorId(id);
+			return Mapper.Map<Instituicao, InstituicaoViewModel>(objeto);
 		}
 
 		public IEnumerable<InstituicaoViewModel> ObterTodos()
@@ -42,17 +44,20 @@ namespace SistemaUniben.Application
 
 		public void Atualizar(InstituicaoViewModel obj)
 		{
-			throw new System.NotImplementedException();
+			var objeto = Mapper.Map<InstituicaoViewModel, Instituicao>(obj);
+			_instituicaoService.Atualizar(objeto);
 		}
 
 		public void Remover(InstituicaoViewModel obj)
 		{
-			throw new System.NotImplementedException();
+			var objeto = Mapper.Map<InstituicaoViewModel, Instituicao>(obj);
+			_instituicaoService.Remover(objeto);
 		}
 
 		public IEnumerable<InstituicaoViewModel> ObterPorCNPJ(string cnpj)
 		{
-			throw new System.NotImplementedException();
+			var objeto = _instituicaoService.ObterPorCNPJ(cnpj);
+			return Mapper.Map<IEnumerable<Instituicao>, IEnumerable<InstituicaoViewModel>>(objeto); ;
 		}
 	}
 }

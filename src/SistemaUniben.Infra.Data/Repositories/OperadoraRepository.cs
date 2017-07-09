@@ -9,7 +9,7 @@ namespace SistemaUniben.Infra.Data.Repositories
 	{
 		public IEnumerable<Operadora> GetByCNPJ(string cnpj)
 		{
-			return Find(c => c.CNPJ == cnpj).ToList(); ;
+			throw new System.NotImplementedException();
 		}
 	}
 }

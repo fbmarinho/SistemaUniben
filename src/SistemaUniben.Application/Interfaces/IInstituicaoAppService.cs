@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using SistemaUniben.Application.ViewModels;
+﻿using SistemaUniben.Application.ViewModels;
+
 
 namespace SistemaUniben.Application.Interfaces
 {
-	public interface IInstituicaoAppService
+	public interface IInstituicaoAppService : IBaseAppService<InstituicaoViewModel>, IPessoaJuridicaAppService<InstituicaoViewModel>
 	{
-		// CRUD
-		void Adicionar(InstituicaoViewModel obj);
-		InstituicaoViewModel ObterPorId(Guid id);
-		IEnumerable<InstituicaoViewModel> ObterTodos();
-		void Atualizar(InstituicaoViewModel obj);
-		void Remover(InstituicaoViewModel obj);
 
-		// Métodos Especificos
-		IEnumerable<InstituicaoViewModel> ObterPorCNPJ(string cnpj);
 	}
 }

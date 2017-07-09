@@ -21,17 +21,20 @@ namespace SistemaUniben.Infra.CrossCutting.IoC
 
 			// App
 			Bind<IClienteAppService>().To<ClienteAppService>();
+			Bind<IEmpresaAppService>().To<EmpresaAppService>();
 			Bind<IOperadoraAppService>().To<OperadoraAppService>();
 			Bind<IInstituicaoAppService>().To<InstituicaoAppService>();
 
 			// Domain Service
 			Bind<IClienteService>().To<ClienteService>();
+			Bind<IEmpresaService>().To<EmpresaService>();
 			Bind<IOperadoraService>().To<OperadoraService>();
 			Bind<IInstituicaoService>().To<InstituicaoService>();
 
 			// Data
 			Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
 			Bind<IClienteRepository>().To<ClienteRepository>();
+			Bind<IEmpresaRepository>().To<EmpresaRepository>();
 			Bind<IOperadoraRepository>().To<OperadoraRepository>();
 			Bind<IInstituicaoRepository>().To<InstituicaoRepository>();
 		}

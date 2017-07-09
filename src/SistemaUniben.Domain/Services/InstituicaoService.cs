@@ -10,12 +10,13 @@ namespace SistemaUniben.Domain.Services
 	public class InstituicaoService : IInstituicaoService
 	{
 
-		protected readonly IInstituicaoRepository _instituicaoRepository;
+		private readonly IInstituicaoRepository _instituicaoRepository;
 
 		public InstituicaoService(IInstituicaoRepository instituicaoRepository)
 		{
 			_instituicaoRepository = instituicaoRepository;
 		}
+
 
 		public void Dispose()
 		{
@@ -30,7 +31,7 @@ namespace SistemaUniben.Domain.Services
 
 		public Instituicao ObterPorId(Guid id)
 		{
-			throw new NotImplementedException();
+			return _instituicaoRepository.GetById(id);
 		}
 
 		public IEnumerable<Instituicao> ObterTodos()
@@ -40,22 +41,22 @@ namespace SistemaUniben.Domain.Services
 
 		public void Atualizar(Instituicao obj)
 		{
-			throw new NotImplementedException();
+			_instituicaoRepository.Update(obj);
 		}
 
 		public void Remover(Instituicao obj)
 		{
-			throw new NotImplementedException();
+			_instituicaoRepository.Remove(obj);
 		}
 
 		public IEnumerable<Instituicao> Buscar(Expression<Func<Instituicao, bool>> predicate)
 		{
-			throw new NotImplementedException();
+			return _instituicaoRepository.Find(predicate);
 		}
 
 		public IEnumerable<Instituicao> ObterPorCNPJ(string cnpj)
 		{
-			throw new NotImplementedException();
+			return _instituicaoRepository.GetByCNPJ(cnpj);
 		}
 	}
 }

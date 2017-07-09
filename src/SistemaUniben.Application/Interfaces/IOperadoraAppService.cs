@@ -4,16 +4,8 @@ using SistemaUniben.Application.ViewModels;
 
 namespace SistemaUniben.Application.Interfaces
 {
-	public interface IOperadoraAppService : IDisposable
+	public interface IOperadoraAppService : IBaseAppService<OperadoraViewModel>, IPessoaJuridicaAppService<OperadoraViewModel>
 	{
 		// CRUD
-		void Adicionar(OperadoraViewModel obj);
-		OperadoraViewModel ObterPorId(Guid id);
-		IEnumerable<OperadoraViewModel> ObterTodos();
-		void Atualizar(OperadoraViewModel obj);
-		void Remover(OperadoraViewModel obj);
-
-		// Métodos Especificos
-		IEnumerable<OperadoraViewModel> ObterPorCNPJ(string cnpj);
 	}
 }

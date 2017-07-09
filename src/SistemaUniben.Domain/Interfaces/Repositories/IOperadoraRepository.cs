@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using SistemaUniben.Domain.Entities;
+﻿using SistemaUniben.Domain.Entities;
 
 namespace SistemaUniben.Domain.Interfaces.Repositories
 {
-	public interface IOperadoraRepository : IBaseRepository<Operadora>
+	public interface IOperadoraRepository: IBaseRepository<Operadora>, IPessoaJuridicaRepository<Operadora>
 	{
-		IEnumerable<Operadora> GetByCNPJ(string cnpj);
+		//Métodos especificos
 	}
 }

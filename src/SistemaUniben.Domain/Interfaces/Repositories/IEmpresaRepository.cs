@@ -2,7 +2,7 @@
 
 namespace SistemaUniben.Domain.Interfaces.Repositories
 {
-	public interface IInstituicaoRepository : IBaseRepository<Instituicao>, IPessoaJuridicaRepository<Instituicao>
+	public interface IEmpresaRepository : IBaseRepository<Empresa>, IPessoaJuridicaRepository<Empresa>
 	{
 		//Métodos específicos
 	}

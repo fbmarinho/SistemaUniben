@@ -142,7 +142,7 @@ $(document).ready(function () {
     //});
 
 
-	$("#CNPJ").mask("999.999.999/9999-99");
+	//$("#CNPJ").mask("999.999.999/9999-99");
 
     $("#CNPJ").keyup(function () {
 	    console.log("key up");

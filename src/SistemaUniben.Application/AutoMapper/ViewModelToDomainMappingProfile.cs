@@ -9,6 +9,7 @@ namespace SistemaUniben.Application.AutoMapper
 		public ViewModelToDomainMappingProfile()
 		{
 			CreateMap<ClienteViewModel, Cliente>();
+			CreateMap<EmpresaViewModel, Empresa>();
 			CreateMap<OperadoraViewModel, Operadora>();
 			CreateMap<InstituicaoViewModel, Instituicao>();
 		}

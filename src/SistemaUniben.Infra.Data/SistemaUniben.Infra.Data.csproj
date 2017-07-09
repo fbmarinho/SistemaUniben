@@ -71,8 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />
+    <Compile Include="Repositories\EmpresaRepository.cs" />
     <Compile Include="Repositories\InstituicaoRepository.cs" />
     <Compile Include="Repositories\OperadoraRepository.cs" />
+    <Compile Include="Repositories\PessoaJuridicaRepository.cs" />
     <Compile Include="UoW\UnitOfWork.cs" />
     <Compile Include="Util\Util.cs" />
   </ItemGroup>

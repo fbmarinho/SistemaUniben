@@ -5,13 +5,8 @@ using SistemaUniben.Application.ViewModels;
 
 namespace SistemaUniben.Application.Interfaces
 {
-	public interface IClienteAppService : IDisposable
+	public interface IClienteAppService : IBaseAppService<ClienteViewModel>
 	{
-		void Adicionar(ClienteViewModel obj);
-		ClienteViewModel ObterPorId(Guid id);
-		IEnumerable<ClienteViewModel> ObterTodos();
-		void Atualizar(ClienteViewModel obj);
-		void Remover(ClienteViewModel obj);
-		IEnumerable<ClienteViewModel> ObterPorNome(string nome);
+
 	}
 }
