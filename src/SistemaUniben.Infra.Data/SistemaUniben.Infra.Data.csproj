@@ -68,6 +68,7 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUtil.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Factories\EmpresaFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />

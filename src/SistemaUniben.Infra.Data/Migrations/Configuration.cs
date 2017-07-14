@@ -1,3 +1,5 @@
+using SistemaUniben.Infra.Data.Factories;
+
 namespace SistemaUniben.Infra.Data.Migrations
 {
     using System;
@@ -26,6 +28,8 @@ namespace SistemaUniben.Infra.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+			EmpresaFactory empresaFactory;
+			empresaFactory.run();
         }
     }
 }
