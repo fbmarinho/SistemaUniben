@@ -14,7 +14,7 @@ namespace SistemaUniben.Infra.Data.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(SistemaUniben.Infra.Data.Context.SistemaUnibenContext context)
+        protected override void Seed(Context.SistemaUnibenContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -28,8 +28,8 @@ namespace SistemaUniben.Infra.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-			EmpresaFactory empresaFactory;
-			empresaFactory.run();
+	        var empresaFactory = new EmpresaFactory(context);
+			empresaFactory.Run();
         }
     }
 }

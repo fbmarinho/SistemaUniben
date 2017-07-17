@@ -8,7 +8,7 @@ namespace SistemaUniben.Domain.Entities
 	{
 		public Empresa()
 		{
-			EmpresaId = new Guid();
+			EmpresaId = Guid.NewGuid();
 		}
 
 		public Guid EmpresaId { get; set; }

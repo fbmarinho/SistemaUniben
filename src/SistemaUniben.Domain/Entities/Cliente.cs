@@ -7,7 +7,7 @@ namespace SistemaUniben.Domain.Entities
 	{
 		public Cliente()
 		{
-			ClienteId = new Guid();
+			ClienteId = Guid.NewGuid();
 		}
 		public Guid ClienteId { get; set; }
 	}

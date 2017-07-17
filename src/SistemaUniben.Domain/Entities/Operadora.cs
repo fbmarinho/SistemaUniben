@@ -9,7 +9,7 @@ namespace SistemaUniben.Domain.Entities
 	{
 		public Operadora()
 		{
-			OperadoraId = new Guid();
+			OperadoraId = Guid.NewGuid();
 		}
 		public Guid OperadoraId { get; set; }
 	}

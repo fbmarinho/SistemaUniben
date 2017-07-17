@@ -1,5 +1,7 @@
-﻿using System.CodeDom;
+﻿using System;
+using System.CodeDom;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using Microsoft.Practices.ServiceLocation;
 using SistemaUniben.Domain.Entities;
 using SistemaUniben.Domain.Interfaces.Services;
@@ -11,23 +13,24 @@ namespace SistemaUniben.Infra.Data.Factories
 {
 	public class EmpresaFactory
 	{
-		private readonly IEmpresaService _empresaService;
 
+		private readonly SistemaUnibenContext _context;
 
-		public EmpresaFactory(IEmpresaService empresaService)
+		public EmpresaFactory(SistemaUnibenContext context)
 		{
-			_empresaService = empresaService;
+			_context = context;
 		}
 
-		public void run()
+		public void Run()
 		{
-			var obj = new Empresa()
+			var obj = new Empresa
 			{
 				Nome = "Empresa 1",
 				NomeFantasia = "Empresa de Teste 1",
-				CNPJ = "011789456000189"
+				CNPJ = "011789456000189",
+				DataAbertura = DateTime.Now
 			};
-			_empresaService.Adicionar(obj);
+			_context.Empresas.AddOrUpdate(o => o.CNPJ, obj);
 		}
 	}
 }

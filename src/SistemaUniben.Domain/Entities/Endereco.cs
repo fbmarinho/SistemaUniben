@@ -6,7 +6,7 @@ namespace SistemaUniben.Domain.Entities
 	{
 		public Endereco()
 		{
-			EnderecoId = new Guid();
+			EnderecoId = Guid.NewGuid();
 		}
 
 		//Endereço
