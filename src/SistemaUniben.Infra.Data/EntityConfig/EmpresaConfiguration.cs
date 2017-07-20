@@ -20,6 +20,16 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 					me.MapRightKey("OwnerId");
 					me.ToTable("EmpresaEndereco");
 				});
+
+			// Relacionamentos Muitos para Muitos
+			HasMany(t => t.Telefones)
+				.WithMany()
+				.Map(me =>
+				{
+					me.MapLeftKey("EmpresaId");
+					me.MapRightKey("OwnerId");
+					me.ToTable("EmpresaTelefone");
+				});
 		}
 	}
 }

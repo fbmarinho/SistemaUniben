@@ -27,6 +27,8 @@ namespace SistemaUniben.Infra.Data.Context
 
 		// Outros
 		public DbSet<Endereco> Enderecos { get; set; }
+		public DbSet<Telefone> Telefones { get; set; }
+		public DbSet<Produto> Produtos { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -47,6 +49,8 @@ namespace SistemaUniben.Infra.Data.Context
 
 			// Outros
 			modelBuilder.Configurations.Add(new EnderecoConfiguration());
+			modelBuilder.Configurations.Add(new TelefoneConfiguration());
+			modelBuilder.Configurations.Add(new ProdutoConfiguration());
 
 			// Configuração das tabelas padrão
 			//modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());

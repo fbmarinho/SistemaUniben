@@ -18,7 +18,9 @@ namespace SistemaUniben.Domain.Entities.Abstract
 
 		//Endereço
 		public Guid EnderecoPadrao { get; set; }
+		public Guid TelefonePadrao { get; set; }
 		public virtual ICollection<Endereco> Enderecos { get; set; }
+		public virtual ICollection<Telefone> Telefones { get; set; }
 
 		//Interno    
 		public bool Ativo { get; set; }

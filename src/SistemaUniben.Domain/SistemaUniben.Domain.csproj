@@ -37,6 +37,8 @@
     <Compile Include="Entities\Instituicao.cs" />
     <Compile Include="Entities\Operadora.cs" />
     <Compile Include="Entities\Abstract\PessoaFisica.cs" />
+    <Compile Include="Entities\Produto.cs" />
+    <Compile Include="Entities\Telefone.cs" />
     <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEmpresaRepository.cs" />

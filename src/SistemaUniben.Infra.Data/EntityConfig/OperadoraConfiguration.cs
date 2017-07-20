@@ -21,6 +21,16 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 					me.MapRightKey("OwnerId");
 					me.ToTable("OperadoraEndereco");
 				});
+			
+			// Relacionamentos Muitos para Muitos
+			HasMany(t => t.Telefones)
+				.WithMany()
+				.Map(me =>
+				{
+					me.MapLeftKey("OperadoraId");
+					me.MapRightKey("OwnerId");
+					me.ToTable("OperadoraTelefone");
+				});
 		}
 	}
 }

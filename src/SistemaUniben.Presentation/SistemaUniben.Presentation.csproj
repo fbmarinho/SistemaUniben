@@ -165,6 +165,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstituicaoController.cs" />
     <Compile Include="Controllers\OperadoraController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -304,6 +305,7 @@
     <Content Include="Scripts\less\bootstrap-multiselect.less" />
     <Content Include="Views\Empresa\Index.cshtml" />
     <Content Include="Views\Empresa\Cadastro.cshtml" />
+    <Content Include="Views\Produto\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

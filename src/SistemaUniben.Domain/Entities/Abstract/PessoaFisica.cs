@@ -12,7 +12,9 @@ namespace SistemaUniben.Domain.Entities.Abstract
 		public DateTime DataNascinmento { get; set; }
 		
 		//Endereco
-		public int EnderecoPadrao { get; set; }
+		public Guid EnderecoPadrao { get; set; }
+		public Guid TelefonePadrao { get; set; }
 		public virtual ICollection<Endereco> Enderecos { get; set; }
+		public virtual ICollection<Telefone> Telefones { get; set; }
 	}
 }
