@@ -8,7 +8,11 @@ namespace SistemaUniben.Infra.Data.EntityConfig
 		public ProdutoConfiguration()
 		{
 			ToTable("Produtos");
-			HasKey(p => p.ProdutoId);	
+			HasKey(p => p.ProdutoId);
+			
+		
 		}
+
+
 	}
 }
