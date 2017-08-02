@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SistemaUniben.Application.ViewModels.ProdutoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Cadastro")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PorcentagemPrimeiraMensalidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoContratacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbrangenciaGeografica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acomodacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coparticipacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sigla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PorcentagemPrimeiraMensalidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoContratacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbrangenciaGeografica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acomodacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Coparticipacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
+        </td>
+    </tr>
+}
+
+</table>

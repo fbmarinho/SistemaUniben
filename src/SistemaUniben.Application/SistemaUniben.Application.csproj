@@ -60,13 +60,16 @@
     <Compile Include="Interfaces\IOperadoraAppService.cs" />
     <Compile Include="InstituicaoAppService.cs" />
     <Compile Include="Interfaces\IPessoaJuridicaAppService.cs" />
+    <Compile Include="Interfaces\IProdutoAppService.cs" />
     <Compile Include="OperadoraAppService.cs" />
+    <Compile Include="ProdutoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AbstractViewModels\PessoaJuridicaViewModel.cs" />
     <Compile Include="ViewModels\ClienteViewModel.cs" />
     <Compile Include="ViewModels\EmpresaViewModel.cs" />
     <Compile Include="ViewModels\InstituicaoViewModel.cs" />
     <Compile Include="ViewModels\OperadoraViewModel.cs" />
+    <Compile Include="ViewModels\ProdutoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

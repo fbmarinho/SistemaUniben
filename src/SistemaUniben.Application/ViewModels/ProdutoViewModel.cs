@@ -1,15 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace SistemaUniben.Domain.Entities
+namespace SistemaUniben.Application.ViewModels
 {
-	public class Produto
+	public class ProdutoViewModel
 	{
-		public Produto()
-		{
-			ProdutoId = Guid.NewGuid();
-		}
-
+		[Key]
 		public Guid ProdutoId { get; set; }
+
 		public string Nome { get; set; }
 
 		//ANS
@@ -29,11 +27,5 @@ namespace SistemaUniben.Domain.Entities
 
 		//Outros
 		public string Observacao { get; set; }
-
-		//Interno
-		public bool Ativo { get; set; }
-		public bool IsValid { get; set; }
-		public DateTime DataCadastro { get; set; }
-		public DateTime? DataExclusao { get; set; }	
 	}
 }

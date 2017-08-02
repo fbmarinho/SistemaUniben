@@ -24,6 +24,7 @@ namespace SistemaUniben.Infra.CrossCutting.IoC
 			Bind<IEmpresaAppService>().To<EmpresaAppService>();
 			Bind<IOperadoraAppService>().To<OperadoraAppService>();
 			Bind<IInstituicaoAppService>().To<InstituicaoAppService>();
+			Bind<IProdutoAppService>().To<ProdutoAppService>();
 
 			// Domain Service
 			Bind<IClienteService>().To<ClienteService>();
