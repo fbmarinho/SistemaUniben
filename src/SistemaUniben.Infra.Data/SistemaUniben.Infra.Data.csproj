@@ -78,6 +78,7 @@
     <Compile Include="Repositories\InstituicaoRepository.cs" />
     <Compile Include="Repositories\OperadoraRepository.cs" />
     <Compile Include="Repositories\PessoaJuridicaRepository.cs" />
+    <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="UoW\UnitOfWork.cs" />
     <Compile Include="Util\Util.cs" />
   </ItemGroup>

@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoMapper;
 using SistemaUniben.Application.Interfaces;
 using SistemaUniben.Application.ViewModels;
+using SistemaUniben.Domain.Entities;
+using SistemaUniben.Domain.Interfaces.Services;
 
 namespace SistemaUniben.Application
 {
 	public class ProdutoAppService : IProdutoAppService
 	{
+
+		private readonly IProdutoService _produtoService;
+
+		public ProdutoAppService(IProdutoService produtoService)
+		{
+			_produtoService = produtoService;
+		}
+
 		public void Dispose()
 		{
 			throw new NotImplementedException();
@@ -24,7 +35,8 @@ namespace SistemaUniben.Application
 
 		public IEnumerable<ProdutoViewModel> ObterTodos()
 		{
-			throw new NotImplementedException();
+			var todos = _produtoService.ObterTodos();
+			return Mapper.Map<IEnumerable<Produto>, IEnumerable<ProdutoViewModel>>(todos);
 		}
 
 		public void Atualizar(ProdutoViewModel obj)

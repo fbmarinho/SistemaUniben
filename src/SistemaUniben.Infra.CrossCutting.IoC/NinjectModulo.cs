@@ -31,6 +31,7 @@ namespace SistemaUniben.Infra.CrossCutting.IoC
 			Bind<IEmpresaService>().To<EmpresaService>();
 			Bind<IOperadoraService>().To<OperadoraService>();
 			Bind<IInstituicaoService>().To<InstituicaoService>();
+			Bind<IProdutoService>().To<ProdutoService>();
 
 			// Data
 			Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
@@ -38,6 +39,7 @@ namespace SistemaUniben.Infra.CrossCutting.IoC
 			Bind<IEmpresaRepository>().To<EmpresaRepository>();
 			Bind<IOperadoraRepository>().To<OperadoraRepository>();
 			Bind<IInstituicaoRepository>().To<InstituicaoRepository>();
+			Bind<IProdutoRepository>().To<ProdutoRepository>();
 		}
 	}
 }
