@@ -1,93 +1,124 @@
 ﻿@model IEnumerable<SistemaUniben.Application.ViewModels.ProdutoViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Produtos";
 }
 
-<h2>Index</h2>
+<ol class="breadcrumb">
+	<li><a href="/Home/Index">Principal</a></li>
+	<li class="active">Lista de produtos</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Create New", "Cadastro")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sigla)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PorcentagemPrimeiraMensalidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoContratacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AbrangenciaGeografica)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Acomodacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Coparticipacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Observacao)
-        </th>
-        <th></th>
-    </tr>
+<div class="well well-sm">
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Buscar">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+		</span>
+	</div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sigla)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PorcentagemPrimeiraMensalidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoContratacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AbrangenciaGeografica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Acomodacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Coparticipacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observacao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
-        </td>
-    </tr>
-}
 
-</table>
+<div class="container">
+	<div class="row text-primary table-striped">
+		<div class="col-md-3">Nome</div>
+		<div class="col-md-3">Tipo</div>
+		<div class="col-md-4">Seg. Assistencial</div>
+		<div class="col-md-2"></div>
+	</div>
+	<hr/>
+	@foreach (var item in Model) {
+		<div class="row row-striped">
+			<div class="col-md-3">
+				@Html.DisplayFor(modelItem => item.Nome) (@Html.DisplayFor(modelItem => item.Sigla))
+			</div>
+			<div class="col-md-3">
+				@Html.DisplayFor(modelItem => item.TipoContratacao)
+			</div>
+			<div class="col-md-4">
+				@Html.DisplayFor(modelItem => item.AbrangenciaGeografica) / @Html.DisplayFor(modelItem => item.Acomodacao) / Coparticipação
+			</div>
+			<div class="col-md-2 text-right">
+				<div class="btn-group" role="group" aria-label="...">
+					<a href="@Url.Action("Edit", "Produto", new {id = item.ProdutoId})"><i class="glyphicon glyphicon-pencil"></i></a>
+					<a href="#" data-toggle="modal" data-target="#modal-delete" data-url="@Url.Action("Delete", "Produto", new {id = item.ProdutoId})">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div>
+			</div>	
+		</div>
+	}
+</div>
+
+<hr />
+
+<div class="row">
+	<div class="col-md-6 text-center">
+		
+		<nav aria-label="Page navigation">
+			<ul class="pagination">
+				<li>
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+	</div>
+	<div class="col-md-6 text-right">
+		@Html.ActionLink("Adicionar novo Produto", "Cadastro", null, new {@class = "btn btn-primary"})
+	</div>
+</div>
+
+
+
+
+
+<!-- MODAL PARA O DELETE-->
+<div id="modal-delete" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header danger">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Atenção</h4>
+			</div>
+			<div id="deleteContainer" class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-primary">Excluir</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- MODAL PARA O CREATE-->
+<div id="createModal" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header danger">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Novo Produto</h4>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-primary">Excluir</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

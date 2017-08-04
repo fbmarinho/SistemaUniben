@@ -29,7 +29,9 @@ namespace SistemaUniben.Infra.Data.Migrations
             //    );
             //
 	        var empresaFactory = new EmpresaFactory(context);
+	        var produtoFactory = new ProdutoFactory(context);
 			empresaFactory.Run();
+			produtoFactory.Run();
         }
     }
 }

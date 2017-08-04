@@ -1,136 +1,146 @@
-﻿$('.formAjax').submit(function (e) {
+﻿//$('.formAjax').submit(function (e) {
 
-    e.preventDefault();
+//    e.preventDefault();
 
-    var dados = $(this).serialize(); 
+//    var dados = $(this).serialize(); 
 
-    var metodo = $(this).attr("action");
+//    var metodo = $(this).attr("action");
 
-    $("#modal").modal('show');
+//    $("#modal").modal('show');
 
-    $("#botaoSalvar").on("click", function () {
-        $("#modal").modal('hide');
-        $.ajax({
-            type: "POST",
-            url: metodo,
-            data: dados,
-            success: function (data, textStatus, jqXHR) {
+//    $("#botaoSalvar").on("click", function () {
+//        $("#modal").modal('hide');
+//        $.ajax({
+//            type: "POST",
+//            url: metodo,
+//            data: dados,
+//            success: function (data, textStatus, jqXHR) {
                 
-                if (data.status) {
-                    $('<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+dados.msg+'</div>').insertAfter(".breadcrumb");
-                } else {
-                    $('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><b>Ocorreu um erro:</b>' + dados.error + '</div>').insertAfter(".breadcrumb");
-                }               
+//                if (data.status) {
+//                    $('<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+dados.msg+'</div>').insertAfter(".breadcrumb");
+//                } else {
+//                    $('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><b>Ocorreu um erro:</b>' + dados.error + '</div>').insertAfter(".breadcrumb");
+//                }               
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><b>Ocorreu um erro: </b>' + errorThrown + '</div>').insertAfter(".breadcrumb");
-            }
+//            },
+//            error: function (jqXHR, textStatus, errorThrown) {
+//                $('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><b>Ocorreu um erro: </b>' + errorThrown + '</div>').insertAfter(".breadcrumb");
+//            }
 
-        });
-    });
+//        });
+//    });
 
-});
+//});
 
 
 
-function toogle(elemento) {
+//function toogle(elemento) {
 
-    $(elemento.parentElement.parentElement.childNodes[6]).slideToggle("slow");
+//    $(elemento.parentElement.parentElement.childNodes[6]).slideToggle("slow");
 
-    $(elemento).toggleClass('fa-chevron-up fa-chevron-down')
+//    $(elemento).toggleClass('fa-chevron-up fa-chevron-down')
         
-    return false;
+//    return false;
 
-}
-
-
-
-
-function carregaDados(obj, tipo) {
-
-    if (typeof obj !== 'object') {
-        obj = search(obj);
-    }
-
-    if (tipo == 'visualizar') {
-        $("#myModalLabel").html("Visualizar dados cadastrais");
-        $("#btConfirmar").hide();
-
-    } else {
-        $("#myModalLabel").html("Atualizar dados cadastrais");
-        $("#btConfirmar").show();
-    }
-
-    var elemento = "";
-    var input = "";
-
-    $.each(obj, function (index, value) {
-        if (value != null) {
-            if (typeof value === 'object') {
-                $.each(value, function (i, v) {
-                    $.each(Object.keys(v), function (i2, v2) {
-                        input = $("#" + v2);
-                        input.val(v[v2]);
-                    });
-                });
-            }
-            if (typeof value !== 'object') {
-                $("#" + index).val(value);
-            }
-        }
-
-    });
-
-    $("#modal").modal().show();
-
-
-}
+//}
 
 
 
-function search(id) {
-    var items = $("#jsGrid").jsGrid("option", "data");
-    for (var i = 0; i < items.length; i++) {
-        if (items[i].EmpresaId === id) {
-            return items[i];
-        }
-    }
-}
 
-function submitDados(entidade, acao) {
+//function carregaDados(obj, tipo) {
 
-    $('#btConfirmar').on('click', function () {
+//    if (typeof obj !== 'object') {
+//        obj = search(obj);
+//    }
 
-        $('#btConfirmar').html("<i class=\"fa fa-cog fa-spin fa-1x fa-fw\"></i> Carregando...");
-        $('#btConfirmar').attr("disabled", "disabled");
-        $.ajax({
-            method: "POST",
-            url: "/" + entidade + "/" + acao + "",
-            data: $('#formulario').serialize(),
-            dataType: "json",
-            success: function (r) {
-                var r = JSON.parse(r);
-                $('#btConfirmar').html("Salvar");
+//    if (tipo == 'visualizar') {
+//        $("#myModalLabel").html("Visualizar dados cadastrais");
+//        $("#btConfirmar").hide();
 
-                if (r.retorno == 'true') {
-                    var sucesso = '<div class="alert alert-success"><i class="fa fa-floppy-o fa-3x" aria-hidden="true"></i> <h4>Cadastro realizado com sucesso.</h4></div>';
-                    $('#modal .modal-body').html(sucesso);
-                    $('#formulario')[0].reset();
-                } else {
-                    var erro = '<div class="alert alert-danger"><i class="fa fa-floppy-o fa-3x" aria-hidden="true"></i> <h4>Ocorreu um erro ao realizar o cadastro.</h4></div>';
-                    $('#modal .modal-body').html(erro);
-                }
+//    } else {
+//        $("#myModalLabel").html("Atualizar dados cadastrais");
+//        $("#btConfirmar").show();
+//    }
 
-            }
-        });
-    });
-}
+//    var elemento = "";
+//    var input = "";
+
+//    $.each(obj, function (index, value) {
+//        if (value != null) {
+//            if (typeof value === 'object') {
+//                $.each(value, function (i, v) {
+//                    $.each(Object.keys(v), function (i2, v2) {
+//                        input = $("#" + v2);
+//                        input.val(v[v2]);
+//                    });
+//                });
+//            }
+//            if (typeof value !== 'object') {
+//                $("#" + index).val(value);
+//            }
+//        }
+
+//    });
+
+//    $("#modal").modal().show();
+
+
+//}
+
+
+
+//function search(id) {
+//    var items = $("#jsGrid").jsGrid("option", "data");
+//    for (var i = 0; i < items.length; i++) {
+//        if (items[i].EmpresaId === id) {
+//            return items[i];
+//        }
+//    }
+//}
+
+//function submitDados(entidade, acao) {
+
+//    $('#btConfirmar').on('click', function () {
+
+//        $('#btConfirmar').html("<i class=\"fa fa-cog fa-spin fa-1x fa-fw\"></i> Carregando...");
+//        $('#btConfirmar').attr("disabled", "disabled");
+//        $.ajax({
+//            method: "POST",
+//            url: "/" + entidade + "/" + acao + "",
+//            data: $('#formulario').serialize(),
+//            dataType: "json",
+//            success: function (r) {
+//                var r = JSON.parse(r);
+//                $('#btConfirmar').html("Salvar");
+
+//                if (r.retorno == 'true') {
+//                    var sucesso = '<div class="alert alert-success"><i class="fa fa-floppy-o fa-3x" aria-hidden="true"></i> <h4>Cadastro realizado com sucesso.</h4></div>';
+//                    $('#modal .modal-body').html(sucesso);
+//                    $('#formulario')[0].reset();
+//                } else {
+//                    var erro = '<div class="alert alert-danger"><i class="fa fa-floppy-o fa-3x" aria-hidden="true"></i> <h4>Ocorreu um erro ao realizar o cadastro.</h4></div>';
+//                    $('#modal .modal-body').html(erro);
+//                }
+
+//            }
+//        });
+//    });
+//}
 
 
 $(document).ready(function () {
 
-	console.log("doc ready!");
+	console.log("Pronto");
+
+	$("#modal-delete").on('show.bs.modal',
+		function (event) {
+			var button = $(event.relatedTarget); // Button that triggered the modal
+			var url = button.data('url'); // Extract info from data-* attributes
+
+			$.get(url, function (data) {
+				$('#deleteContainer').html(data);
+			});
+		});
 
 
     //$('#formulario').submit(function (event) {

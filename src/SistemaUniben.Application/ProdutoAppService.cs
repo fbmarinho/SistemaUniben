@@ -8,7 +8,7 @@ using SistemaUniben.Domain.Interfaces.Services;
 
 namespace SistemaUniben.Application
 {
-	public class ProdutoAppService : IProdutoAppService
+	public class ProdutoAppService : AppServiceBase, IProdutoAppService
 	{
 
 		private readonly IProdutoService _produtoService;
@@ -30,7 +30,8 @@ namespace SistemaUniben.Application
 
 		public ProdutoViewModel ObterPorId(Guid id)
 		{
-			throw new NotImplementedException();
+			var produto = _produtoService.ObterPorId(id);
+			return Mapper.Map<Produto, ProdutoViewModel>(produto);
 		}
 
 		public IEnumerable<ProdutoViewModel> ObterTodos()
@@ -41,7 +42,11 @@ namespace SistemaUniben.Application
 
 		public void Atualizar(ProdutoViewModel obj)
 		{
-			throw new NotImplementedException();
+			BeginTransaction();
+
+				_produtoService.Atualizar(Mapper.Map<ProdutoViewModel, Produto>(obj));
+
+			Commit();
 		}
 
 		public void Remover(ProdutoViewModel obj)

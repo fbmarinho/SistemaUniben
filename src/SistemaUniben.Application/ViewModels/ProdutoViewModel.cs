@@ -26,6 +26,7 @@ namespace SistemaUniben.Application.ViewModels
 		public bool Coparticipacao { get; set; }
 
 		//Outros
+		public string GrauParentescoPermitido { get; set; }
 		public string Observacao { get; set; }
 	}
 }

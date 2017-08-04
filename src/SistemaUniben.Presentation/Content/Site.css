@@ -919,3 +919,12 @@ textarea:focus, input:focus, select:focus, .uneditable-input:focus {
     background: -moz-radial-gradient(circle, #fff, #c9d9e4); /* Firefox 3.6 to 15 */
     background: radial-gradient(circle, #fff, #c9d9e4); /* Standard syntax */
 }
+
+
+.row-striped:nth-of-type(odd){
+	background-color: #fff;
+}
+
+.row-striped:nth-of-type(even){
+	background-color: #f0f0f0;
+}

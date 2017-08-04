@@ -1,0 +1,114 @@
+﻿@model SistemaUniben.Application.ViewModels.ProdutoViewModel
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProdutoViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PorcentagemPrimeiraMensalidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PorcentagemPrimeiraMensalidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoContratacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoContratacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbrangenciaGeografica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbrangenciaGeografica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acomodacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acomodacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coparticipacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coparticipacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrauParentescoPermitido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrauParentescoPermitido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

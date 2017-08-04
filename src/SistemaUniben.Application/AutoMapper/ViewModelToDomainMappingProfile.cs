@@ -12,6 +12,7 @@ namespace SistemaUniben.Application.AutoMapper
 			CreateMap<EmpresaViewModel, Empresa>();
 			CreateMap<OperadoraViewModel, Operadora>();
 			CreateMap<InstituicaoViewModel, Instituicao>();
+			CreateMap<ProdutoViewModel, Produto>();
 		}
 	}
 }

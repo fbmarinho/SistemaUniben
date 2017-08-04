@@ -28,7 +28,7 @@ namespace SistemaUniben.Domain.Services
 
 		public Produto ObterPorId(Guid id)
 		{
-			throw new NotImplementedException();
+			return _produtoRepository.GetById(id);
 		}
 
 		public IEnumerable<Produto> ObterTodos()
@@ -38,7 +38,7 @@ namespace SistemaUniben.Domain.Services
 
 		public void Atualizar(Produto obj)
 		{
-			throw new NotImplementedException();
+			_produtoRepository.Update(obj);
 		}
 
 		public void Remover(Produto obj)

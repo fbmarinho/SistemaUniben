@@ -66,6 +66,7 @@
     <Compile Include="EntityConfig\AbstractConfig\PessoaFisicaConfiguration.cs" />
     <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
     <Compile Include="EntityConfig\TelefoneConfiguration.cs" />
+    <Compile Include="Factories\ProdutoFactory.cs" />
     <Compile Include="Interfaces\IContextManager.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUtil.cs" />
