@@ -46,9 +46,9 @@ namespace SistemaUniben.Domain.Services
 			_operadoraRepository.Update(obj);
 		}
 
-		public void Remover(Operadora obj)
+		public void Remover(Guid id)
 		{
-			_operadoraRepository.Remove(obj);
+			_operadoraRepository.Remove(id);
 		}
 
 		public IEnumerable<Operadora> Buscar(Expression<Func<Operadora, bool>> predicate)

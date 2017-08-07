@@ -20,12 +20,17 @@ namespace SistemaUniben.Application
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			_produtoService.Dispose();
+			GC.SuppressFinalize(this);
 		}
 
 		public void Adicionar(ProdutoViewModel obj)
 		{
-			throw new NotImplementedException();
+			BeginTransaction();
+
+			_produtoService.Adicionar(Mapper.Map<ProdutoViewModel, Produto>(obj));
+
+			Commit();
 		}
 
 		public ProdutoViewModel ObterPorId(Guid id)
@@ -49,9 +54,13 @@ namespace SistemaUniben.Application
 			Commit();
 		}
 
-		public void Remover(ProdutoViewModel obj)
+		public void Remover(Guid id)
 		{
-			throw new NotImplementedException();
+			BeginTransaction();
+
+				_produtoService.Remover(id);
+
+			Commit();
 		}
 	}
 }

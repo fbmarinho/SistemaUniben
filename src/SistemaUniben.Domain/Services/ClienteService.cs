@@ -53,9 +53,9 @@ namespace SistemaUniben.Domain.Services
 			return _clienteRepository.GetAll();
 		}
 
-		public void Remover(Cliente obj)
+		public void Remover(Guid id)
 		{
-			_clienteRepository.Remove(obj);
+			_clienteRepository.Remove(id);
 		}
 	}
 }

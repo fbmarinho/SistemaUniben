@@ -18,7 +18,7 @@ namespace SistemaUniben.Domain.Entities
 		public DateTime DataRegistro { get; set; }
 
 		//Financeiro
-		public int Valor { get; set; }
+		public float Valor { get; set; }
 		public int PorcentagemPrimeiraMensalidade { get; set; }
 
 		//Segmentacao assistencial

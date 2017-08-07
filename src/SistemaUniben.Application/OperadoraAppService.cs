@@ -48,10 +48,9 @@ namespace SistemaUniben.Application
 			_operadoraService.Atualizar(objeto);
 		}
 
-		public void Remover(OperadoraViewModel obj)
+		public void Remover(Guid id)
 		{
-			var objeto = Mapper.Map<OperadoraViewModel, Operadora>(obj);
-			_operadoraService.Remover(objeto);
+			_operadoraService.Remover(id);
 		}
 
 		public IEnumerable<OperadoraViewModel> ObterPorCNPJ(string cnpj)

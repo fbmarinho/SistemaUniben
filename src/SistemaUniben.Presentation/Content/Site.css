@@ -928,3 +928,31 @@ textarea:focus, input:focus, select:focus, .uneditable-input:focus {
 .row-striped:nth-of-type(even){
 	background-color: #f0f0f0;
 }
+
+.parentesco-btn {
+	width: 16.4%;
+	height: 30px;
+	margin-right: 1px;
+	float: left;
+	background-color: #999999;
+	color: white;
+	border: 0px solid white;
+	font-size: 12px
+}
+
+.coparticipacao-btn {
+	width: 49.8%;
+	height: 30px;
+	margin-right: 1px;
+	float: left;
+	background-color: #999999;
+	color: white;
+	border: 0px solid white;
+	font-size: 12px
+}
+
+.clicado {
+	background-color: #026c3e;
+	color: white;
+}
+

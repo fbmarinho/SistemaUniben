@@ -10,7 +10,7 @@ namespace SistemaUniben.Domain.Interfaces.Repositories
 		TEntity GetById(Guid id);
 		IEnumerable<TEntity> GetAll();
 		void Update(TEntity obj);
-		void Remove(TEntity obj);
+		void Remove(Guid id);
 		IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 		void SaveChanges();
 	}

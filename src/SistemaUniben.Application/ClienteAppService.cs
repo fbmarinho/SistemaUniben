@@ -47,10 +47,9 @@ namespace SistemaUniben.Application
 			_clienteService.Atualizar(cliente);
 		}
 
-		public void Remover(ClienteViewModel obj)
+		public void Remover(Guid id)
 		{
-			var cliente = Mapper.Map<ClienteViewModel, Cliente>(obj);
-			_clienteService.Remover(cliente);
+			_clienteService.Remover(id);
 		}
 
 		public IEnumerable<ClienteViewModel> ObterPorNome(string nome)

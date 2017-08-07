@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SistemaUniben.Application.Interfaces;
 using SistemaUniben.Application.ViewModels;
+using SistemaUniben.Domain.Entities.Listas;
 
 namespace SistemaUniben.Presentation.Controllers
 {
@@ -32,13 +33,29 @@ namespace SistemaUniben.Presentation.Controllers
 	    // GET: Operadora/Create
 	    public PartialViewResult Create()
 	    {
-		    return PartialView("Create", new ProdutoViewModel());
+		    ViewBag.listas = new Listas();
+			return PartialView(new ProdutoViewModel());
 	    }
+
+	    // POST: Produto/Edit/[Guid]
+	    [HttpPost]
+	    public ActionResult Create(ProdutoViewModel obj)
+	    {
+		    if (ModelState.IsValid)
+		    {
+			    _produtoAppService.Adicionar(obj);
+			    return RedirectToAction("Index");
+		    }
+		    return View(obj);
+	    }
+
+
 
 		// GET: Produto/Edit/[Guid]
 		public ActionResult Edit(Guid id)
-	    {
-			return View(_produtoAppService.ObterPorId(id));
+		{
+			ViewBag.listas = new Listas();
+			return PartialView(_produtoAppService.ObterPorId(id));
 	    }
 
 		// POST: Produto/Edit/[Guid]
@@ -58,6 +75,14 @@ namespace SistemaUniben.Presentation.Controllers
 	    public ActionResult Delete(Guid id)
 		{
 		    return PartialView(_produtoAppService.ObterPorId(id));
+	    }
+
+	    [HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+	    public ActionResult DeleteConfirmed(Guid id)
+	    {
+			_produtoAppService.Remover(id);
+			return RedirectToAction("Index");
 	    }
 	}
 }

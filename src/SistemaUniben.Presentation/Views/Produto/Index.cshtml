@@ -32,15 +32,25 @@
 			<div class="col-md-3">
 				@Html.DisplayFor(modelItem => item.Nome) (@Html.DisplayFor(modelItem => item.Sigla))
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-2">
 				@Html.DisplayFor(modelItem => item.TipoContratacao)
 			</div>
-			<div class="col-md-4">
-				@Html.DisplayFor(modelItem => item.AbrangenciaGeografica) / @Html.DisplayFor(modelItem => item.Acomodacao) / Coparticipação
+			<div class="col-md-5">
+				@Html.DisplayFor(modelItem => item.AbrangenciaGeografica) / @Html.DisplayFor(modelItem => item.Acomodacao) /
+				@if(item.Coparticipacao)
+				{
+					<span>Coparticipativo</span>
+				}
+				else
+				{
+					<span>Sem Coparticipação</span>
+				}
 			</div>
 			<div class="col-md-2 text-right">
 				<div class="btn-group" role="group" aria-label="...">
-					<a href="@Url.Action("Edit", "Produto", new {id = item.ProdutoId})"><i class="glyphicon glyphicon-pencil"></i></a>
+					<a href="#" data-toggle="modal" data-target="#modal-edit" data-url="@Url.Action("Edit", "Produto", new {id = item.ProdutoId})">
+						<i class="glyphicon glyphicon-pencil"></i>
+					</a>
 					<a href="#" data-toggle="modal" data-target="#modal-delete" data-url="@Url.Action("Delete", "Produto", new {id = item.ProdutoId})">
 						<i class="glyphicon glyphicon-trash"></i>
 					</a>
@@ -77,48 +87,18 @@
 
 	</div>
 	<div class="col-md-6 text-right">
-		@Html.ActionLink("Adicionar novo Produto", "Cadastro", null, new {@class = "btn btn-primary"})
+		<a href="#" data-toggle="modal" data-target="#modal-create" class="btn btn-primary">
+			Adicionar novo Produto
+		</a>
+		@*@Html.ActionLink("Adicionar novo Produto", "Cadastro", null, new {@class = "btn btn-primary"})*@
 	</div>
 </div>
 
-
-
-
-
 <!-- MODAL PARA O DELETE-->
-<div id="modal-delete" class="modal fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header danger">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Atenção</h4>
-			</div>
-			<div id="deleteContainer" class="modal-body">
-				
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary">Excluir</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+@{ Html.RenderPartial("DeleteModal");}
+
+<!-- MODAL PARA O EDIT-->
+@{ Html.RenderPartial("EditModal");}
 
 <!-- MODAL PARA O CREATE-->
-<div id="createModal" class="modal fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header danger">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Novo Produto</h4>
-			</div>
-			<div class="modal-body">
-				
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary">Excluir</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+@{ Html.RenderPartial("CreateModal");};

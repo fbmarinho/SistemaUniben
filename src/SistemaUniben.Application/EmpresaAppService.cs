@@ -47,10 +47,9 @@ namespace SistemaUniben.Application
 			_empresaService.Atualizar(objeto);
 		}
 
-		public void Remover(EmpresaViewModel obj)
+		public void Remover(Guid id)
 		{
-			var objeto = Mapper.Map<EmpresaViewModel, Empresa>(obj);
-			_empresaService.Remover(objeto);
+			_empresaService.Remover(id);
 		}
 
 		public IEnumerable<EmpresaViewModel> ObterPorCNPJ(string cnpj)

@@ -48,10 +48,9 @@ namespace SistemaUniben.Application
 			_instituicaoService.Atualizar(objeto);
 		}
 
-		public void Remover(InstituicaoViewModel obj)
+		public void Remover(Guid id)
 		{
-			var objeto = Mapper.Map<InstituicaoViewModel, Instituicao>(obj);
-			_instituicaoService.Remover(objeto);
+			_instituicaoService.Remover(id);
 		}
 
 		public IEnumerable<InstituicaoViewModel> ObterPorCNPJ(string cnpj)

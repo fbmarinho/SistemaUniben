@@ -35,6 +35,7 @@
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Entities\Instituicao.cs" />
+    <Compile Include="Entities\Listas\Listas.cs" />
     <Compile Include="Entities\Operadora.cs" />
     <Compile Include="Entities\Abstract\PessoaFisica.cs" />
     <Compile Include="Entities\Produto.cs" />

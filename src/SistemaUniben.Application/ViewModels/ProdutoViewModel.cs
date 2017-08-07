@@ -5,6 +5,11 @@ namespace SistemaUniben.Application.ViewModels
 {
 	public class ProdutoViewModel
 	{
+		public ProdutoViewModel()
+		{
+			ProdutoId = Guid.NewGuid();
+		}
+
 		[Key]
 		public Guid ProdutoId { get; set; }
 
@@ -16,7 +21,7 @@ namespace SistemaUniben.Application.ViewModels
 		public DateTime DataRegistro { get; set; }
 
 		//Financeiro
-		public int Valor { get; set; }
+		public float Valor { get; set; }
 		public int PorcentagemPrimeiraMensalidade { get; set; }
 
 		//Segmentacao assistencial
@@ -28,5 +33,7 @@ namespace SistemaUniben.Application.ViewModels
 		//Outros
 		public string GrauParentescoPermitido { get; set; }
 		public string Observacao { get; set; }
+
+		public DateTime DataCadastro { get; set; }
 	}
 }

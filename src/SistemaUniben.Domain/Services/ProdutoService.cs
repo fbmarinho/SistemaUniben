@@ -18,12 +18,13 @@ namespace SistemaUniben.Domain.Services
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			_produtoRepository.Dispose();
+			GC.SuppressFinalize(this);
 		}
 
 		public void Adicionar(Produto obj)
 		{
-			throw new NotImplementedException();
+			_produtoRepository.Add(obj);
 		}
 
 		public Produto ObterPorId(Guid id)
@@ -41,14 +42,14 @@ namespace SistemaUniben.Domain.Services
 			_produtoRepository.Update(obj);
 		}
 
-		public void Remover(Produto obj)
+		public void Remover(Guid id)
 		{
-			throw new NotImplementedException();
+			_produtoRepository.Remove(id);
 		}
 
 		public IEnumerable<Produto> Buscar(Expression<Func<Produto, bool>> predicate)
 		{
-			throw new NotImplementedException();
+			return _produtoRepository.Find(predicate);
 		}
 	}
 }

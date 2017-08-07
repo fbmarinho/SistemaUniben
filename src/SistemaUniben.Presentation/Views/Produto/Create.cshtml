@@ -1,115 +1,144 @@
 ﻿@model SistemaUniben.Application.ViewModels.ProdutoViewModel
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Produto", 
+	new { ReturnUrl = ViewBag.ReturnUrl }, 
+	FormMethod.Post, new { @class="form-horizontal" }))
 {
-    @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>ProdutoViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	@Html.HiddenFor(model => model.ProdutoId)
+	    
+	<div class="form-group row">
+		<div class="input-group col-md-12">
+			<div class="input-group-addon">Nome</div>
+			@Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+		</div>
+	</div>
+		
+	    
+	<div class="form-group row">
+		<div class="input-group col-md-12">Registro na ANS</div>
+		<div class="input-group col-md-4">
+			<div class="input-group-addon">Sigla</div>
+			@Html.EditorFor(model => model.Sigla, new {htmlAttributes = new {@class = "form-control"}})
+			@Html.ValidationMessageFor(model => model.Sigla, "", new {@class = "text-danger"})
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumeroRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumeroRegistro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumeroRegistro, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="input-group col-md-4">
+			<div class="input-group-addon">Número</div>
+			@Html.EditorFor(model => model.NumeroRegistro, new {htmlAttributes = new {@class = "form-control"}})
+			@Html.ValidationMessageFor(model => model.NumeroRegistro, "", new {@class = "text-danger"})
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sigla, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sigla, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sigla, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="input-group col-md-4">
+			<div class="input-group-addon">Data</div>
+			<input name="DataRegistro" type="datetime" value="@DateTime.Now" class="form-control"/>
+			@*@Html.EditorFor(model => model.DataRegistro, new {htmlAttributes = new {@class = "form-control"}})*@
+			@Html.ValidationMessageFor(model => model.DataRegistro, "", new {@class = "text-danger"})
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataRegistro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataRegistro, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group row">
+		<div class="input-group col-md-12">Informações financeiras</div>
+		<div class="input-group col-md-4">
+			<div class="input-group-addon">Valor (R$)</div>
+			@Html.EditorFor(model => model.Valor, new {htmlAttributes = new {@class = "form-control"}})
+			@Html.ValidationMessageFor(model => model.Valor, "", new {@class = "text-danger"})
+		</div>
+		<div class="input-group col-md-3">
+			<div class="input-group-addon"> %</div>
+			@Html.EditorFor(model => model.PorcentagemPrimeiraMensalidade, new {htmlAttributes = new {@class = "form-control"}})
+			@Html.ValidationMessageFor(model => model.PorcentagemPrimeiraMensalidade, "", new {@class = "text-danger"})
+		</div>
+		<div class="input-group col-md-5">
+			<div class="input-group-addon">Tipo</div>
+			<select name="TipoContratacao" class="form-control">
+				@foreach (string tipo in ViewBag.listas.TipoContratacao) 
+				{
+					<option value="@tipo">@tipo</option>
+				}
+			</select>
+			@*@Html.EditorFor(model => model.TipoContratacao, new { htmlAttributes = new { @class = "form-control" } })*@
+			@Html.ValidationMessageFor(model => model.TipoContratacao, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PorcentagemPrimeiraMensalidade, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PorcentagemPrimeiraMensalidade, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PorcentagemPrimeiraMensalidade, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group row">
+		<div class="input-group col-md-12">Coparticipação</div>
+		<div class="input-group col-md-12">
+			<input type="hidden" name="Coparticipacao" value="@Html.DisplayTextFor(model => model.Coparticipacao)" class="coparticipacao-field" />
+			<input id="com-btn" type="button" class="coparticipacao-btn" value="Com coparticipação" />
+			<input id="sem-btn" type="button" class="coparticipacao-btn" value="Sem coparticipação" />
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TipoContratacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TipoContratacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TipoContratacao, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	@*<div class="col-md-12 checkbox">
+		Coparticipação @Html.CheckBoxFor(model => model.Coparticipacao)
+	</div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AbrangenciaGeografica, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AbrangenciaGeografica, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AbrangenciaGeografica, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Acomodacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Acomodacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Acomodacao, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group row">
+		<div class="input-group col-md-12">Segmentação assistencial</div>
+		<div class="input-group col-md-6">
+			<div class="input-group-addon">Abrangência</div>
+			<select name="AbrangenciaGeografica" class="form-control">
+				@foreach (string item in ViewBag.listas.AbrangenciaGeografica)
+				{
+					<option value="@item">@item</option>
+				}
+			</select>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Coparticipacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Coparticipacao)
-                    @Html.ValidationMessageFor(model => model.Coparticipacao, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+			@*@Html.EditorFor(model => model.AbrangenciaGeografica, new { htmlAttributes = new { @class = "form-control" } })*@
+			@Html.ValidationMessageFor(model => model.AbrangenciaGeografica, "", new { @class = "text-danger" })
+		</div>
+		<div class="input-group col-md-6">
+			<div class="input-group-addon">Acomodação</div>
+			<select name="Acomodacao" class="form-control">
+				@foreach (string item in ViewBag.listas.Acomodacao)
+				{
+					<option value="@item">@item</option>
+				}
+			</select>
+			@*@Html.EditorFor(model => model.Acomodacao, new { htmlAttributes = new { @class = "form-control" } })*@
+			@Html.ValidationMessageFor(model => model.Acomodacao, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.GrauParentescoPermitido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GrauParentescoPermitido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrauParentescoPermitido, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group row">
+		<div class="input-group col-md-12">Grau de parentesco permitido</div>
+		<div class="input-group col-md-12">
+			<input name="GrauParentescoPermitido" type="hidden" value="@Html.DisplayFor(model => model.GrauParentescoPermitido)" class="form-control parentesco-field"/>
+			
+			@foreach (string item in ViewBag.listas.GrauParentescoPermitido)
+			{
+				<input name="GrauParentesco" type="button" value="@item" class="parentesco-btn" data-nome="@item" />
+			}
+			
+			@*@Html.EditorFor(model => model.GrauParentescoPermitido, new { htmlAttributes = new { @class = "form-control" } })*@
+			@Html.ValidationMessageFor(model => model.GrauParentescoPermitido, "", new { @class = "text-danger" })
+		</div>
+	</div>		
+	   
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Observacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Observacao, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group row">
+		<div class="input-group col-md-12">Observações</div>
+		<div class="input-group col-md-12">
+			@Html.TextAreaFor(model => model.Observacao, new {htmlAttributes = new {@class = "form-control"}})
+			@Html.ValidationMessageFor(model => model.Observacao, "", new {@class = "text-danger"})
+		</div>
+	</div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md-8">Data atual: @DateTime.Now</div>
+		<div class="col-md-4 text-right">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</div>
+	</div>
+
 }

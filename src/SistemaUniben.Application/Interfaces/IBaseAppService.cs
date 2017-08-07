@@ -10,6 +10,6 @@ namespace SistemaUniben.Application.Interfaces
 		TEntity ObterPorId(Guid id);
 		IEnumerable<TEntity> ObterTodos();
 		void Atualizar(TEntity obj);
-		void Remover(TEntity obj);
+		void Remover(Guid id);
 	}
 }

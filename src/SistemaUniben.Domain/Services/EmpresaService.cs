@@ -43,9 +43,9 @@ namespace SistemaUniben.Domain.Services
 			_empresaRepository.Update(obj);
 		}
 
-		public void Remover(Empresa obj)
+		public void Remover(Guid id)
 		{
-			_empresaRepository.Remove(obj);
+			_empresaRepository.Remove(id);
 		}
 
 		public IEnumerable<Empresa> Buscar(Expression<Func<Empresa, bool>> predicate)

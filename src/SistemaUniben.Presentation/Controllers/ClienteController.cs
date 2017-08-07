@@ -77,10 +77,10 @@ namespace SistemaUniben.Presentation.Controllers
         }
 
         // POST: Cliente/Delete/5
-        [HttpPost]
-        public ActionResult Delete(Guid id, ClienteViewModel obj)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(Guid id)
         {
-			_clienteAppService.Remover(_clienteAppService.ObterPorId(id));
+			_clienteAppService.Remover(id);
 
 	        return RedirectToAction("Index");
         }

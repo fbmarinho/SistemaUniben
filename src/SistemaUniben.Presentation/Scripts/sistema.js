@@ -126,22 +126,126 @@
 //        });
 //    });
 //}
+function montaCoparticipacao() {
+	var txt = $(".coparticipacao-field").val();
 
+	if (txt == "True") {
+		console.log("True");
+		$("#com-btn").addClass("clicado");
+		$("#sem-btn").removeClass("clicado");
+	} else {
+		console.log("False");
+		$("#sem-btn").addClass("clicado");
+		$("#com-btn").removeClass("clicado");
+	}
+
+	$("#com-btn").on("click",
+		function () {
+			$(this).addClass("clicado");
+			$("#sem-btn").removeClass("clicado");
+			$(".coparticipacao-field").val("True");
+		});
+
+	$("#sem-btn").on("click",
+		function () {
+			$(this).addClass("clicado");
+			$("#com-btn").removeClass("clicado");
+			$(".coparticipacao-field").val("False");
+		});
+}
+
+function montaParentesco() {
+
+	var txt = $(".parentesco-field").val();
+
+	var botoes = txt.split(",");
+
+	for (var botao in botoes) {
+		$(".parentesco-btn").each(function () {
+			if ($(this).data("nome") == botoes[botao]) {
+				$(this).addClass("clicado");
+			}
+		});
+	}
+
+
+	$(".parentesco-btn").on("click",
+		function() {
+
+			$(this).toggleClass("clicado");
+			var texto = $(this).data("nome");
+			$(".parentesco-field").val(texto);
+			var texto = "";
+			$(".parentesco-btn").each(function() {
+				if ($(this).hasClass("clicado")) {
+					if (texto == "") {
+						texto = $(this).data("nome");;
+					} else {
+						texto = texto + "," + $(this).data("nome");
+					}
+				}
+			});
+			$(".parentesco-field").val(texto);
+		});
+}
 
 $(document).ready(function () {
 
 	console.log("Pronto");
 
-	$("#modal-delete").on('show.bs.modal',
+	$("#modal-create").on("show.bs.modal",
 		function (event) {
+
 			var button = $(event.relatedTarget); // Button that triggered the modal
-			var url = button.data('url'); // Extract info from data-* attributes
+			var url = "/Produto/Create"; // Extract info from data-* attributes 
+
+			$("#wait").hide();
 
 			$.get(url, function (data) {
-				$('#deleteContainer').html(data);
+				$("#createContainer").html(data);
+				
+				montaCoparticipacao();
+				montaParentesco();
 			});
+		}).on("hidden.bs.modal",
+		function () {
+			$("#createContainer").empty();
+			$("#wait").show();
 		});
 
+	$("#modal-delete").on("show.bs.modal",
+		function (event) {
+			
+			var button = $(event.relatedTarget); // Button that triggered the modal
+			var url = button.data("url"); // Extract info from data-* attributes
+
+			$.get(url, function (data) {
+				$("#deleteContainer").html(data);
+				$("#wait").hide();
+			});
+		}).on("hidden.bs.modal",
+		function () {
+			$("#deleteContainer").empty();
+			$("#wait").show();
+		});
+
+	$("#modal-edit").on("show.bs.modal",
+		function (event) {
+
+			var button = $(event.relatedTarget); // Button that triggered the modal
+			var url = button.data("url"); // Extract info from data-* attributes
+
+			$.get(url, function (data) {
+				$("#editContainer").html(data);
+				$("#wait").hide();
+				montaCoparticipacao();
+				montaParentesco();
+			});
+		}).on("hidden.bs.modal",
+		function () {
+			$("#editContainer").empty();
+			$("#wait").show();
+		});
 
     //$('#formulario').submit(function (event) {
     //    event.preventDefault();

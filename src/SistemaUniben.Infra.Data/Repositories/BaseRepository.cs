@@ -45,8 +45,9 @@ namespace SistemaUniben.Infra.Data.Repositories
 			entry.State = EntityState.Modified;
 		}
 
-		public void Remove(TEntity obj)
+		public void Remove(Guid id)
 		{
+			var obj = DbSet.Find(id);
 			DbSet.Remove(obj);
 		}
 
